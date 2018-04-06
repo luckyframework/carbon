@@ -9,6 +9,12 @@ end
 private class CustomizedRecipientsEmail < BareMinimumEmail
 end
 
+private class EmailWithEmailables < Carbon::Email
+  from "from@example.com"
+  to User.new
+  subject "Doesn't matter"
+end
+
 describe Carbon::Email do
   it "can build a bare minimum email" do
     email = BareMinimumEmail.new
@@ -24,6 +30,14 @@ describe Carbon::Email do
     email.subject.should eq "My great subject"
     email.from.should eq Carbon::Address.new("from@example.com")
     email.to.should eq Carbon::Address.new("to@example.com")
+  end
+
+  it "can use Emailables" do
+    email = EmailWithEmailables.new
+
+    # TODO: Should normalize getting the `from` address
+    email.from.should eq "from@example.com"
+    email.to.should eq Carbon::Address.new("user@example.com")
   end
 
   it "can use Carbon::Emailable in from and recipients" do
