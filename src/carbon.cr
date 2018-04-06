@@ -1,3 +1,4 @@
+require "./carbon/string_extensions"
 require "./carbon/**"
 
 module Carbon
