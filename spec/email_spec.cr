@@ -49,7 +49,7 @@ describe Carbon::Email do
     email.to.should eq Carbon::Address.new("to@example.com")
   end
 
-  it "can use Emailables" do
+  pending "can use Emailables" do
     email = EmailWithEmailables.new
 
     # TODO: Should normalize getting the `from` address
