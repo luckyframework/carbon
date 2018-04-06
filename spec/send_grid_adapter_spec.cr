@@ -3,12 +3,35 @@ require "./spec_helper"
 describe "SendGrid adapter" do
   describe "params" do
     it "sets personalizations" do
-      address = Carbon::Address.new("to@example.com")
-      address_2 = Carbon::Address.new("Jimmy", "to2@example.com")
-      params_for(to: [address, address_2])[:personalizations].should eq(
+      to_without_name = Carbon::Address.new("to@example.com")
+      to_with_name = Carbon::Address.new("Jimmy", "to2@example.com")
+      cc_without_name = Carbon::Address.new("cc@example.com")
+      cc_with_name = Carbon::Address.new("Kim", "cc2@example.com")
+      bcc_without_name = Carbon::Address.new("bcc@example.com")
+      bcc_with_name = Carbon::Address.new("James", "bcc2@example.com")
+
+      recipient_params = params_for(
+        to: [to_without_name, to_with_name],
+        cc: [cc_without_name, cc_with_name],
+        bcc: [bcc_without_name, bcc_with_name]
+      )[:personalizations].first
+
+      recipient_params[:to].should eq(
         [
-          {:to => [{name: nil, email: "to@example.com"},
-                   {name: "Jimmy", email: "to2@example.com"}]},
+          {name: nil, email: "to@example.com"},
+          {name: "Jimmy", email: "to2@example.com"},
+        ]
+      )
+      recipient_params[:cc].should eq(
+        [
+          {name: nil, email: "cc@example.com"},
+          {name: "Kim", email: "cc2@example.com"},
+        ]
+      )
+      recipient_params[:bcc].should eq(
+        [
+          {name: nil, email: "bcc@example.com"},
+          {name: "James", email: "bcc2@example.com"},
         ]
       )
     end
