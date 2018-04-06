@@ -19,27 +19,29 @@ class Carbon::SendGridAdapter < Carbon::Adapter
     end
 
     def deliver
-      client.post(MAIL_SEND_PATH, body: params).tap do |response|
+      client.post(MAIL_SEND_PATH, body: params.to_json).tap do |response|
         unless response.success?
           raise JSON.parse(response.body).inspect
         end
       end
     end
 
-    private def params
+    # :nodoc:
+    # Used only for testing
+    def params
       {
         personalizations: [personalizations],
         subject:          email.subject,
         from:             from,
         content:          content,
-      }.to_json
+      }
     end
 
     private def personalizations
       {
-        to:  to_send_grid_address(email.recipients.to),
-        cc:  to_send_grid_address(email.recipients.cc),
-        bcc: to_send_grid_address(email.recipients.bcc),
+        to:  to_send_grid_address(email.to),
+        cc:  to_send_grid_address(email.cc),
+        bcc: to_send_grid_address(email.bcc),
       }.to_h.reject do |key, value|
         value.empty?
       end
