@@ -36,6 +36,15 @@ describe "SendGrid adapter" do
       )
     end
 
+    it "removes empty recipients from personalizations" do
+      to_without_name = Carbon::Address.new("to@example.com")
+
+      recipient_params = params_for(to: [to_without_name])[:personalizations].first
+
+      recipient_params.keys.should eq [:to]
+      recipient_params[:to].should eq [{name: nil, email: "to@example.com"}]
+    end
+
     it "sets the subject" do
       params_for(subject: "My subject")[:subject].should eq "My subject"
     end
