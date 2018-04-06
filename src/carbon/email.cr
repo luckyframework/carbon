@@ -1,17 +1,17 @@
 require "ecr"
 
-module Header
-  macro included
-    @headers = {} of String => String
-
-    def headers
-      @headers
-    end
-  end
-end
-
 abstract class Carbon::Email
-  include Header
+  macro inherited
+    ensure_base_headers_method_is_present
+  end
+
+  macro ensure_base_headers_method_is_present
+    {% if !@type.methods.map(&.name).includes?(:headers.id) %}
+      def headers
+        @headers
+      end
+    {% end %}
+  end
 
   alias Recipients = Carbon::Emailable | Array(Carbon::Emailable)
 
@@ -43,10 +43,16 @@ abstract class Carbon::Email
     end
   end
 
+  @headers = {} of String => String
+
+  macro reply_to(address)
+    header "Reply-To", {{ address }}
+  end
+
   macro header(key, value)
     def headers : Hash(String, String)
       previous_def
-      @headers[key] = value
+      @headers[{{ key }}] = {{ value }}
       @headers
     end
   end
