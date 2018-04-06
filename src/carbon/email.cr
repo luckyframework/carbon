@@ -1,6 +1,18 @@
 require "ecr"
 
+module Header
+  macro included
+    @headers = {} of String => String
+
+    def headers
+      @headers
+    end
+  end
+end
+
 abstract class Carbon::Email
+  include Header
+
   alias Recipients = Carbon::Emailable | Array(Carbon::Emailable)
 
   abstract def subject : String
@@ -14,12 +26,6 @@ abstract class Carbon::Email
   def text_body; end
 
   def html_body; end
-
-  @headers = {} of String => String
-
-  def headers
-    @headers
-  end
 
   def recipients : RecipientsList
     RecipientsList.new(to: to, cc: cc, bcc: bcc)
@@ -39,7 +45,7 @@ abstract class Carbon::Email
 
   macro header(key, value)
     def headers : Hash(String, String)
-      super
+      previous_def
       @headers[key] = value
       @headers
     end

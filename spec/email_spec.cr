@@ -1,5 +1,13 @@
 require "./spec_helper"
 
+private class User
+  include Carbon::Emailable
+
+  def carbon_address
+    "user@example.com"
+  end
+end
+
 private class BareMinimumEmail < Carbon::Email
   subject "My great subject"
   from Carbon::Address.new("from@example.com")
@@ -13,6 +21,15 @@ private class EmailWithEmailables < Carbon::Email
   from "from@example.com"
   to User.new
   subject "Doesn't matter"
+end
+
+private class EmailWithAttributes < BareMinimumEmail
+  header "Custom-Header", "header_value"
+  reply_to "reply_to@example.com"
+
+  private def header_value
+    "header_value"
+  end
 end
 
 describe Carbon::Email do
@@ -47,9 +64,13 @@ describe Carbon::Email do
   end
 
   it "can customize headers" do
+    email = EmailWithAttributes.new
+    email.headers["Custom-Header"].should eq "header_value"
   end
 
   it "has a shortcut for setting reply-to" do
+    email = EmailWithAttributes.new
+    email.headers["Reply-To"].should eq "reply_to@example.com"
   end
 
   it "can use symbols to render methods" do
