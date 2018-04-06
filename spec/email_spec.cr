@@ -14,6 +14,10 @@ private class BareMinimumEmail < Carbon::Email
   to Carbon::Address.new("to@example.com")
 end
 
+private class EmailWithTemplates < BareMinimumEmail
+  templates text, html
+end
+
 private class CustomizedRecipientsEmail < BareMinimumEmail
 end
 
@@ -86,6 +90,10 @@ describe Carbon::Email do
   end
 
   it "can render templates" do
+    email = EmailWithTemplates.new
+
+    email.text_body.should contain "text template"
+    email.html_body.should contain "html template"
   end
 
   it "can customize headers" do
