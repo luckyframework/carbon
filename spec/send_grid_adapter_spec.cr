@@ -10,6 +10,11 @@ describe "SendGrid adapter" do
     end
 
     it "sets the from address" do
+      address = Carbon::Address.new("from@example.com")
+      params_for(from: address)[:from].should eq({email: "from@example.com"}.to_h)
+
+      address = Carbon::Address.new("Sally", "from@example.com")
+      params_for(from: address)[:from].should eq({name: "Sally", email: "from@example.com"}.to_h)
     end
 
     it "sets the content" do
