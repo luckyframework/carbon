@@ -58,8 +58,8 @@ abstract class Carbon::Email
   end
 
   macro from(value)
-    def from : Carbon::Emailable
-      id_or_method({{ value }})
+    def from : Carbon::Address
+      normalize(id_or_method({{ value }})).first
     end
   end
 
@@ -71,8 +71,8 @@ abstract class Carbon::Email
 
   {% for method in [:to, :cc, :bcc] %}
     macro {{ method.id }}(value)
-      def {{ method.id }} : Carbon::Email::Recipients
-        id_or_method(\{{ value }})
+      def {{ method.id }} : Array(Carbon::Address)
+        normalize(id_or_method(\{{ value }}))
       end
     end
   {% end %}
@@ -83,6 +83,16 @@ abstract class Carbon::Email
     {% else %}
       {{ value }}
     {% end %}
+  end
+
+  private def normalize(recipients : Carbon::Email::Recipients) : Array(Carbon::Address)
+    recipients = if recipients.is_a?(Array)
+                   recipients
+                 else
+                   [recipients]
+                 end
+
+    recipients.map(&.carbon_address)
   end
 
   macro inherited

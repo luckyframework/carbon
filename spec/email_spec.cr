@@ -4,7 +4,7 @@ private class User
   include Carbon::Emailable
 
   def emailable
-    "user@example.com"
+    Carbon::Address.new("user@example.com")
   end
 end
 
@@ -19,6 +19,8 @@ private class EmailWithTemplates < BareMinimumEmail
 end
 
 private class CustomizedRecipientsEmail < BareMinimumEmail
+  cc "cc@example.com"
+  bcc ["bcc@example.com"]
 end
 
 private class EmailWithEmailables < Carbon::Email
@@ -29,6 +31,7 @@ end
 
 private class EmailWithAttributes < BareMinimumEmail
   header "Custom-Header", header_value
+  from "from@example.com"
   reply_to "reply_to@example.com"
 
   private def header_value
@@ -70,23 +73,21 @@ describe Carbon::Email do
 
     email.subject.should eq "My great subject"
     email.from.should eq Carbon::Address.new("from@example.com")
-    email.to.should eq Carbon::Address.new("to@example.com")
+    email.to.should eq [Carbon::Address.new("to@example.com")]
   end
 
   it "recipients can be customized" do
     email = CustomizedRecipientsEmail.new
 
-    email.subject.should eq "My great subject"
-    email.from.should eq Carbon::Address.new("from@example.com")
-    email.to.should eq Carbon::Address.new("to@example.com")
+    email.cc.should eq [Carbon::Address.new("cc@example.com")]
+    email.bcc.should eq [Carbon::Address.new("bcc@example.com")]
   end
 
-  pending "can use Emailables" do
+  it "can use Emailables" do
     email = EmailWithEmailables.new
 
-    # TODO: Should normalize getting the `from` address
-    email.from.should eq "from@example.com"
-    email.to.should eq Carbon::Address.new("user@example.com")
+    email.from.should eq Carbon::Address.new("from@example.com")
+    email.to.should eq [Carbon::Address.new("user@example.com")]
   end
 
   it "can render templates" do
@@ -109,10 +110,10 @@ describe Carbon::Email do
   it "can use symbols to call methods" do
     email = EmailWithCustomAttributes.new
 
-    email.from.should eq "from@example.com"
-    email.to.should eq "to@example.com"
-    email.cc.should eq "cc@example.com"
-    email.bcc.should eq "bcc@example.com"
+    email.from.should eq Carbon::Address.new("from@example.com")
+    email.to.should eq [Carbon::Address.new("to@example.com")]
+    email.cc.should eq [Carbon::Address.new("cc@example.com")]
+    email.bcc.should eq [Carbon::Address.new("bcc@example.com")]
     email.subject.should eq "custom subject"
   end
 
