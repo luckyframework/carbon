@@ -4,6 +4,7 @@ class Carbon::Address
   include Carbon::Emailable
 
   getter name, address
+  def_equals name, address
 
   @name : String?
   @address : String
