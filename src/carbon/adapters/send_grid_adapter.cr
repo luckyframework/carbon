@@ -94,7 +94,7 @@ class Carbon::SendGridAdapter < Carbon::Adapter
 
     @_client : HTTP::Client?
 
-    def client : HTTP::Client
+    private def client : HTTP::Client
       @_client ||= HTTP::Client.new(BASE_URI, port: 443, tls: true).tap do |client|
         client.before_request do |request|
           request.headers["Authorization"] = "Bearer #{api_key}"

@@ -49,19 +49,27 @@ describe "SendGrid adapter" do
     end
 
     it "sets the content" do
+      params_for(text_body: "text")[:content].should eq [{type: "text/plain", value: "text"}]
+      params_for(html_body: "html")[:content].should eq [{type: "text/html", value: "html"}]
+      params_for(text_body: "text", html_body: "html")[:content].should eq [
+        {type: "text/plain", value: "text"},
+        {type: "text/html", value: "html"},
+      ]
     end
   end
 end
 
 private class FakeEmail < Carbon::Email
+  getter text_body, html_body
+
   def initialize(
     @from = Carbon::Address.new("from@example.com"),
     @to = [] of Carbon::Address,
     @cc = [] of Carbon::Address,
     @bcc = [] of Carbon::Address,
     @subject = "subject",
-    @text_body = "text body",
-    @html_body = "html body"
+    @text_body : String? = nil,
+    @html_body : String? = nil
   )
   end
 
