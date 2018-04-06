@@ -9,7 +9,12 @@ private class User
 end
 
 describe Carbon::Emailable do
-  pending "requires carbon_address" do
-    User.new.should eq(Carbon::Address)
+  it "requires carbon_address" do
+    User.new.carbon_address.should eq "user@example.com"
+  end
+
+  it "defines a default carbon_address_for_from" do
+    user = User.new
+    user.carbon_address_for_from.should eq user.carbon_address
   end
 end
