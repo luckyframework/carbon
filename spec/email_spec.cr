@@ -3,7 +3,7 @@ require "./spec_helper"
 private class User
   include Carbon::Emailable
 
-  def carbon_address
+  def emailable
     "user@example.com"
   end
 end

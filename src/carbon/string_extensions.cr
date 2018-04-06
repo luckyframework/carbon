@@ -3,7 +3,7 @@ require "./emailable"
 class String
   include Carbon::Emailable
 
-  def carbon_address
-    Carbon::Address.new(self)
+  def emailable
+    Carbon::Address.new(address: self)
   end
 end
