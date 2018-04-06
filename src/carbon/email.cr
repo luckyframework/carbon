@@ -19,17 +19,17 @@ abstract class Carbon::Email
   abstract def from : Carbon::Emailable
   abstract def to : Recipients
 
-  def cc; end
+  def cc
+    [] of Carbon::Address
+  end
 
-  def bcc; end
+  def bcc
+    [] of Carbon::Address
+  end
 
   def text_body; end
 
   def html_body; end
-
-  def recipients : RecipientsList
-    RecipientsList.new(to: to, cc: cc, bcc: bcc)
-  end
 
   macro inherited
     macro templates(*content_types)
