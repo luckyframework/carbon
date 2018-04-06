@@ -24,11 +24,39 @@ private class EmailWithEmailables < Carbon::Email
 end
 
 private class EmailWithAttributes < BareMinimumEmail
-  header "Custom-Header", "header_value"
+  header "Custom-Header", header_value
   reply_to "reply_to@example.com"
 
   private def header_value
     "header_value"
+  end
+end
+
+private class EmailWithCustomAttributes < Carbon::Email
+  from :custom_from
+  to :custom_to
+  cc :custom_cc
+  bcc :custom_bcc
+  subject :custom_subject
+
+  private def custom_from
+    "from@example.com"
+  end
+
+  private def custom_to
+    "to@example.com"
+  end
+
+  private def custom_cc
+    "cc@example.com"
+  end
+
+  private def custom_bcc
+    "bcc@example.com"
+  end
+
+  private def custom_subject
+    "custom subject"
   end
 end
 
@@ -57,9 +85,6 @@ describe Carbon::Email do
     email.to.should eq Carbon::Address.new("user@example.com")
   end
 
-  it "can use Carbon::Emailable in from and recipients" do
-  end
-
   it "can render templates" do
   end
 
@@ -73,7 +98,14 @@ describe Carbon::Email do
     email.headers["Reply-To"].should eq "reply_to@example.com"
   end
 
-  it "can use symbols to render methods" do
+  it "can use symbols to call methods" do
+    email = EmailWithCustomAttributes.new
+
+    email.from.should eq "from@example.com"
+    email.to.should eq "to@example.com"
+    email.cc.should eq "cc@example.com"
+    email.bcc.should eq "bcc@example.com"
+    email.subject.should eq "custom subject"
   end
 
   it "normalizes recipients" do
