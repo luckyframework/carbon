@@ -14,13 +14,14 @@ dependencies:
 
 ## Usage
 
-### First, create a `BaseEmail` class
+### First, create a base class for your emails
 
 ```crystal
 require "carbon"
 
+# You can setup defaults in this class
 abstract class BaseEmail < Carbon::Email
-  # Set up a default from address
+  # For examle, set up a default 'from' address
   from Carbon::Address.new("My App Name", "support@myapp.com")
   # Use a string if you just need the email address
   from "support@myapp.com"
