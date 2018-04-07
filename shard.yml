@@ -7,3 +7,7 @@ authors:
 crystal: 0.24.2
 
 license: MIT
+
+development_dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
