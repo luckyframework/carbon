@@ -2,7 +2,7 @@
 
 Email library written in Crystal.
 
-![code preview](https://user-images.githubusercontent.com/22394/38457862-fbb2b29e-3a63-11e8-940a-f04dcb4808cc.png)
+![code preview](https://user-images.githubusercontent.com/22394/38457909-9f16f9fe-3a64-11e8-852c-74e31238f48b.png)
 
 ## Installation
 
