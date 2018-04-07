@@ -5,7 +5,7 @@ describe "SendGrid adapter" do
     describe "deliver_now" do
       it "delivers the email successfully" do
         api_key = ENV.fetch("SEND_GRID_API_KEY")
-        email = fake_email text_body: "text template",
+        email = FakeEmail.new text_body: "text template",
           to: [Carbon::Address.new("paul@thoughtbot.com")]
         adapter = Carbon::SendGridAdapter.new(api_key: api_key)
         adapter.deliver_now(email)
@@ -106,10 +106,6 @@ private class FakeEmail < Carbon::Email
 end
 
 private def params_for(**email_attrs)
-  email = fake_email(**email_attrs)
+  email = FakeEmail.new(**email_attrs)
   Carbon::SendGridAdapter::Email.new(email, api_key: "fake_key").params
-end
-
-private def fake_email(**email_attrs)
-  FakeEmail.new(**email_attrs)
 end
