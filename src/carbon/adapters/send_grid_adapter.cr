@@ -34,6 +34,7 @@ class Carbon::SendGridAdapter < Carbon::Adapter
         subject:          email.subject,
         from:             from,
         content:          content,
+        sandbox_mode:     {enabled: true},
       }
     end
 

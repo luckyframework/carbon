@@ -4,7 +4,10 @@ describe "SendGrid adapter" do
   {% unless flag?("skip-integration") %}
     describe "deliver_now" do
       it "delivers the email successfully" do
-        raise "WUT"
+        email = fake_email text_body: "text template",
+          to: [Carbon::Address.new("foo@example.com")]
+        adapter = Carbon::SendGridAdapter.new(api_key: "")
+        adapter.deliver_now(email)
       end
     end
   {% end %}
@@ -98,6 +101,10 @@ private class FakeEmail < Carbon::Email
 end
 
 private def params_for(**email_attrs)
-  email = FakeEmail.new(**email_attrs)
+  email = fake_email(**email_attrs)
   Carbon::SendGridAdapter::Email.new(email, api_key: "fake_key").params
+end
+
+private def fake_email(**email_attrs)
+  FakeEmail.new(**email_attrs)
 end
