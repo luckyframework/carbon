@@ -8,4 +8,8 @@ class Carbon::DevAdapter < Carbon::Adapter
   def self.delivered?(email) : Bool
     delivered_emails.any?(&.== email)
   end
+
+  def self.reset
+    @@delivered_emails.clear
+  end
 end
