@@ -2,6 +2,8 @@
 
 Email library written in Crystal.
 
+![code preview](https://user-images.githubusercontent.com/22394/38457862-fbb2b29e-3a63-11e8-940a-f04dcb4808cc.png)
+
 ## Installation
 
 Add this to your application's `shard.yml`:
