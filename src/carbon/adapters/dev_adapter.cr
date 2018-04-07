@@ -4,4 +4,8 @@ class Carbon::DevAdapter < Carbon::Adapter
   def deliver_now(email : Carbon::Email)
     @@delivered_emails << email
   end
+
+  def self.delivered?(email) : Bool
+    delivered_emails.any?(&.== email)
+  end
 end
