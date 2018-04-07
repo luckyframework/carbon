@@ -1,6 +1,14 @@
 require "./spec_helper"
 
 describe "SendGrid adapter" do
+  {% unless flag?("skip-integration") %}
+    describe "deliver_now" do
+      it "delivers the email successfully" do
+        raise "WUT"
+      end
+    end
+  {% end %}
+
   describe "params" do
     it "sets personalizations" do
       to_without_name = Carbon::Address.new("to@example.com")
