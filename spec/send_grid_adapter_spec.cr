@@ -6,7 +6,7 @@ describe "SendGrid adapter" do
       it "delivers the email successfully" do
         api_key = ENV.fetch("SEND_GRID_API_KEY")
         email = fake_email text_body: "text template",
-          to: [Carbon::Address.new("foo@example.com")]
+          to: [Carbon::Address.new("paul@thoughtbot.com")]
         adapter = Carbon::SendGridAdapter.new(api_key: api_key)
         adapter.deliver_now(email)
       end
@@ -14,6 +14,10 @@ describe "SendGrid adapter" do
   {% end %}
 
   describe "params" do
+    it "is not sandboxed by default" do
+      params_for[:mail_settings][:sandbox_mode][:enable].should be_false
+    end
+
     it "sets personalizations" do
       to_without_name = Carbon::Address.new("to@example.com")
       to_with_name = Carbon::Address.new("Jimmy", "to2@example.com")
