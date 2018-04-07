@@ -81,6 +81,74 @@ Welcome, #{@name}!
 WelcomeEmail.new("Kate", "kate@example.com").deliver_now
 ```
 
+## Testing
+
+### Change the adapter
+
+```crystal
+# In spec/spec_helper.cr or wherever you configure your code
+BaseEmail.configure do
+  # This adapter will capture all emails in memory
+  settings.adapter = Carbon::DevAdapter.new
+end
+```
+
+### Reset emails before each spec and include expectations
+
+```crystal
+# In spec/spec_helper.cr
+
+# This gives you the `be_delivered` expectation
+include Carbon::Expectations
+
+Spec.before_each do
+  Carbon::DevAdapter.reset
+end
+```
+
+### Integration testing
+
+```crystal
+# Let's say we have a class that signs the user up and sends the welcome email
+# that was descibed at the beginning of the README
+class SignUpUser
+  def iniitalize(@name : String, @email_address : String)
+  end
+
+  def run
+    sign_user_up
+    WelcomeEmail.new(name: @name, email_address: @email_address).deliver_now
+  end
+end
+
+it "sends an email after the user signs up" do
+  SignUpUser.new(name: "Emily", email_address: "em@gmail.com").run
+
+  # Test that this email was sent
+  WelcomeEmail.new(name: "Emily", email_address: "em@gmail.com").should be_delivered
+end
+```
+
+### Unit testing
+
+Unit testing is simple. Instantiate your email and test the fields you care about.
+
+```crystal
+it "builds a nice welcome email" do
+  email = WelcomeEmail.new(name: "David", email_address: "david@gmail.com")
+  # Note that recipients are converted to an array of Carbon::Address
+  # So if you use a string value for the `to` field, you'll get an array of
+  # Carbon::Address instead.
+  email.to.should eq [Carbon::Address.new("david@gmail.com")]
+  email.text_body.should contain "Welcome"
+  email.html_body.should contain "Welcome"
+end
+```
+
+> Note that unit testing can be superfluous in most cases. Instead, try
+> testing just fields that have complex logic. The compiler will catch most
+> other issues.
+
 ## Development
 
 * `shards install`
