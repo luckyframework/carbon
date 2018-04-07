@@ -19,6 +19,8 @@ abstract class Carbon::Email
   abstract def from : Carbon::Emailable
   abstract def to : Recipients
 
+  def_equals subject, from, to, cc, bcc, headers, text_body, html_body
+
   def cc
     [] of Carbon::Address
   end
