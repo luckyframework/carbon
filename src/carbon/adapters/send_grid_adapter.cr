@@ -2,21 +2,23 @@ require "http"
 require "json"
 
 class Carbon::SendGridAdapter < Carbon::Adapter
-  private getter api_key
+  private getter api_key : String
+  private getter? sandbox : Bool
 
-  def initialize(@api_key : String)
+  def initialize(@api_key, @sandbox = false)
   end
 
   def deliver_now(email : Carbon::Email)
-    Carbon::SendGridAdapter::Email.new(email, api_key).deliver
+    Carbon::SendGridAdapter::Email.new(email, api_key, sandbox?).deliver
   end
 
   class Email
     BASE_URI       = "api.sendgrid.com"
     MAIL_SEND_PATH = "/v3/mail/send"
     private getter email, api_key
+    private getter? sandbox : Bool
 
-    def initialize(@email : Carbon::Email, @api_key : String)
+    def initialize(@email : Carbon::Email, @api_key : String, @sandbox = false)
     end
 
     def deliver
@@ -35,7 +37,7 @@ class Carbon::SendGridAdapter < Carbon::Adapter
         subject:          email.subject,
         from:             from,
         content:          content,
-        sandbox_mode:     {enabled: true},
+        sandbox_mode:     {enabled: sandbox?},
       }
     end
 
