@@ -1,4 +1,5 @@
 require "http"
+require "json"
 
 class Carbon::SendGridAdapter < Carbon::Adapter
   private getter api_key
