@@ -1,3 +1,4 @@
+require "habitat"
 require "./carbon/string_extensions"
 require "./carbon/**"
 
