@@ -23,7 +23,7 @@ require "carbon"
 
 # You can setup defaults in this class
 abstract class BaseEmail < Carbon::Email
-  # For examle, set up a default 'from' address
+  # For example, set up a default 'from' address
   from Carbon::Address.new("My App Name", "support@myapp.com")
   # Use a string if you just need the email address
   from "support@myapp.com"
