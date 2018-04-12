@@ -37,8 +37,32 @@ class Carbon::SendGridAdapter < Carbon::Adapter
         subject:          email.subject,
         from:             from,
         content:          content,
+        headers:          headers,
+        reply_to:         reply_to_params,
         mail_settings:    {sandbox_mode: {enable: sandbox?}},
       }
+    end
+
+    private def reply_to_params
+      if reply_to_address
+        {email: reply_to_address}
+      end
+    end
+
+    private def reply_to_address : String?
+      reply_to_header.values.first?
+    end
+
+    private def reply_to_header
+      reply_to_header = email.headers.select do |key, value|
+        key.downcase == "reply-to"
+      end
+    end
+
+    private def headers : Hash(String, String)
+      email.headers.reject do |key, value|
+        key.downcase == "reply-to"
+      end
     end
 
     private def personalizations
