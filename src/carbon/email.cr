@@ -93,6 +93,7 @@ abstract class Carbon::Email
     {% if @type.abstract? %}
       Habitat.create do
         setting adapter : Carbon::Adapter
+        setting deliver_later_strategy : Carbon::DeliverLaterStrategy = Carbon::SpawnStrategy.new
       end
     {% end %}
   end
@@ -103,5 +104,11 @@ abstract class Carbon::Email
 
   def deliver
     settings.adapter.deliver_now(self)
+  end
+
+  def deliver_later
+    settings.deliver_later_strategy.run(self) do
+      deliver
+    end
   end
 end
