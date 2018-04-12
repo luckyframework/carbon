@@ -118,6 +118,6 @@ end
 private def send_email_to_send_grid(**email_attrs)
   api_key = ENV.fetch("SEND_GRID_API_KEY")
   email = FakeEmail.new(**email_attrs)
-  adapter = Carbon::SendGridAdapter.new(api_key: api_key)
+  adapter = Carbon::SendGridAdapter.new(api_key: api_key, sandbox: true)
   adapter.deliver_now(email)
 end
