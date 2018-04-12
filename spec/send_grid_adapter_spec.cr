@@ -4,11 +4,14 @@ describe "SendGrid adapter" do
   {% unless flag?("skip-integration") %}
     describe "deliver_now" do
       it "delivers the email successfully" do
-        api_key = ENV.fetch("SEND_GRID_API_KEY")
-        email = FakeEmail.new text_body: "text template",
+        send_email_to_send_grid text_body: "text template",
           to: [Carbon::Address.new("paul@thoughtbot.com")]
-        adapter = Carbon::SendGridAdapter.new(api_key: api_key)
-        adapter.deliver_now(email)
+      end
+
+      it "delivers emails with reply_to set" do
+        send_email_to_send_grid text_body: "text template",
+          to: [Carbon::Address.new("paul@thoughtbot.com")],
+          headers: {"Reply-To" => "noreply@badsupport.com"}
       end
     end
   {% end %}
@@ -16,6 +19,29 @@ describe "SendGrid adapter" do
   describe "params" do
     it "is not sandboxed by default" do
       params_for[:mail_settings][:sandbox_mode][:enable].should be_false
+    end
+
+    it "handles headers" do
+      headers = {"Header1" => "value1", "Header2" => "value2"}
+      params = params_for(headers: headers)
+
+      params[:headers].should eq headers
+    end
+
+    it "sets extracts reply-to header" do
+      headers = {"reply-to" => "noreply@badsupport.com", "Header" => "value"}
+      params = params_for(headers: headers)
+
+      params[:headers].should eq({"Header" => "value"})
+      params[:reply_to].should eq({email: "noreply@badsupport.com"})
+    end
+
+    it "sets extracts reply-to header regardless of case" do
+      headers = {"Reply-To" => "noreply@badsupport.com", "Header" => "value"}
+      params = params_for(headers: headers)
+
+      params[:headers].should eq({"Header" => "value"})
+      params[:reply_to].should eq({email: "noreply@badsupport.com"})
     end
 
     it "sets personalizations" do
@@ -84,28 +110,14 @@ describe "SendGrid adapter" do
   end
 end
 
-private class FakeEmail < Carbon::Email
-  getter text_body, html_body
-
-  def initialize(
-    @from = Carbon::Address.new("from@example.com"),
-    @to = [] of Carbon::Address,
-    @cc = [] of Carbon::Address,
-    @bcc = [] of Carbon::Address,
-    @subject = "subject",
-    @text_body : String? = nil,
-    @html_body : String? = nil
-  )
-  end
-
-  from @from
-  to @to
-  cc @cc
-  bcc @bcc
-  subject @subject
-end
-
 private def params_for(**email_attrs)
   email = FakeEmail.new(**email_attrs)
   Carbon::SendGridAdapter::Email.new(email, api_key: "fake_key").params
+end
+
+private def send_email_to_send_grid(**email_attrs)
+  api_key = ENV.fetch("SEND_GRID_API_KEY")
+  email = FakeEmail.new(**email_attrs)
+  adapter = Carbon::SendGridAdapter.new(api_key: api_key)
+  adapter.deliver_now(email)
 end

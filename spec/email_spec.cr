@@ -74,6 +74,7 @@ describe Carbon::Email do
     email.subject.should eq "My great subject"
     email.from.should eq Carbon::Address.new("from@example.com")
     email.to.should eq [Carbon::Address.new("to@example.com")]
+    email.headers.should eq({} of String => String)
   end
 
   it "recipients can be customized" do
@@ -81,6 +82,7 @@ describe Carbon::Email do
 
     email.cc.should eq [Carbon::Address.new("cc@example.com")]
     email.bcc.should eq [Carbon::Address.new("bcc@example.com")]
+    email.headers.should eq({} of String => String)
   end
 
   it "can use Emailables" do
@@ -115,6 +117,7 @@ describe Carbon::Email do
     email.cc.should eq [Carbon::Address.new("cc@example.com")]
     email.bcc.should eq [Carbon::Address.new("bcc@example.com")]
     email.subject.should eq "custom subject"
+    email.headers.should eq({} of String => String)
   end
 
   it "normalizes recipients" do

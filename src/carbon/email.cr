@@ -1,18 +1,6 @@
 require "ecr"
 
 abstract class Carbon::Email
-  macro inherited
-    ensure_base_headers_method_is_present
-  end
-
-  macro ensure_base_headers_method_is_present
-    {% if !@type.methods.map(&.name).includes?(:headers.id) %}
-      def headers
-        @headers
-      end
-    {% end %}
-  end
-
   alias Recipients = Carbon::Emailable | Array(Carbon::Emailable)
 
   abstract def subject : String
@@ -32,6 +20,8 @@ abstract class Carbon::Email
   def text_body; end
 
   def html_body; end
+
+  getter headers
 
   macro inherited
     macro templates(*content_types)
@@ -53,7 +43,9 @@ abstract class Carbon::Email
 
   macro header(key, value)
     def headers : Hash(String, String)
-      previous_def
+      {% if @type.methods.map(&.name).includes?(:headers.id) %}
+        previous_def
+      {% end %}
       @headers[{{ key }}] = {{ value }}
       @headers
     end

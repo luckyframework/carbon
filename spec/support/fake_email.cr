@@ -6,6 +6,7 @@ class FakeEmail < Carbon::Email
     @to = [] of Carbon::Address,
     @cc = [] of Carbon::Address,
     @bcc = [] of Carbon::Address,
+    @headers = {} of String => String,
     @subject = "subject",
     @text_body : String? = nil,
     @html_body : String? = nil
