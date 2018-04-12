@@ -115,9 +115,9 @@ end
 
 ```crystal
 # Let's say we have a class that signs the user up and sends the welcome email
-# that was descibed at the beginning of the README
+# that was described at the beginning of the README
 class SignUpUser
-  def iniitalize(@name : String, @email_address : String)
+  def initialize(@name : String, @email_address : String)
   end
 
   def run
@@ -166,6 +166,10 @@ end
 # If you want to run tests that actually test emails against the SendGrid server
 SEND_GRID_API_KEY=get_from_send_grid
 ```
+
+> Note: When you open a PR, Travis CI will run the test suite and try sending
+> a sandboxed email through SendGrid. Feel free to open a PR to run integration
+> tests if you don't want to get an API key from SendGrid.
 
 ## Contributing
 
