@@ -151,7 +151,7 @@ end
 ```
 
 > Note that unit testing can be superfluous in most cases. Instead, try
-> testing just fields that have complex logic. The compiler will catch most
+> unit testing just fields that have complex logic. The compiler will catch most
 > other issues.
 
 ## Development
