@@ -79,8 +79,11 @@ Welcome, #{@name}!
 ### Deliver the email
 
 ```
-# Send the email!
+# Send the email right away!
 WelcomeEmail.new("Kate", "kate@example.com").deliver_now
+
+# Send the email in the background using `spawn`
+WelcomeEmail.new("Kate", "kate@example.com").deliver_later
 ```
 
 ## Testing
