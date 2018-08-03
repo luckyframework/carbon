@@ -18,4 +18,16 @@ class Carbon::Address
   def emailable
     self
   end
+
+  def to_s(io : IO)
+    io << to_s
+  end
+
+  def to_s : String
+    if @name
+      "\"#{@name}\" <#{@address}>"
+    else
+      @address
+    end
+  end
 end
