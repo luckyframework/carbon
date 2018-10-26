@@ -175,9 +175,11 @@ SEND_GRID_API_KEY=get_from_send_grid
 
 1.  Fork it ( https://github.com/luckyframework/carbon/fork )
 2.  Create your feature branch (git checkout -b my-new-feature)
-3.  Commit your changes (git commit -am 'Add some feature')
-4.  Push to the branch (git push origin my-new-feature)
-5.  Create a new Pull Request
+3.  Make your changes
+4.  Run `./bin/test` to run the specs, build shards, and check formatting
+5.  Commit your changes (git commit -am 'Add some feature')
+6.  Push to the branch (git push origin my-new-feature)
+7.  Create a new Pull Request
 
 ## Contributors
 
