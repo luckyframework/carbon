@@ -33,8 +33,14 @@ end
 ### Configure the mailer class
 
 ```crystal
+# for Send Grid
 BaseEmail.configure do
   settings.adapter = Carbon::SendGridAdapter.new(api_key: "SEND_GRID_API_KEY")
+end
+
+# for AwsSES
+BaseEmail.configure do
+  settings.adapter = Carbon::AwsSesAdapter.new(key: "AWS_SES_KEY", secret: "AWS_SES_SECRET", region: "AWS_SES_REGION")
 end
 ```
 
@@ -159,12 +165,16 @@ end
 * `shards install`
 * Make changes
 * `crystal spec -D skip-integration` (will skip sending test emails to SendGrid)
-* `crystal spec` requires a `SEND_GRID_API_KEY` ENV variable. Set this in a .env file:
+* `crystal spec` requires `SEND_GRID_API_KEY`or `AWS_SES_KEY`, `AWS_SES_SECRET`and `AWS_SES_REGION` ENV variable. Set this in a .env file:
 
 ```
 # in .env
 # If you want to run tests that actually test emails against the SendGrid server
 SEND_GRID_API_KEY=get_from_send_grid
+
+AWS_SES_KEY=get_from_aws_key
+AWS_SES_SECRET=get_from_aws_secret
+AWS_SES_REGION=get_from_aws_region
 ```
 
 > Note: When you open a PR, Travis CI will run the test suite and try sending
