@@ -29,7 +29,7 @@ describe "AwsSES adapter" do
     end
 
     it "create authorization" do
-      params_for()[:authorization].should eq "AWS4-HMAC-SHA256 Credential=fake_key/20190101/fake_region/ses/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=a687adbb5b3d9be8a33c7759a57b668f91b964a06ff297e21124921e0515d43d"
+      params_for()[:authorization].should eq "AWS4-HMAC-SHA256 Credential=fake_key/20190102/fake_region/ses/aws4_request, SignedHeaders=content-type;host;x-amz-date, Signature=64e1f5faffaafd5647b690bd7aa8bfc1bfc40f743d911344db4786d548eb6cc3"
     end
 
     it "create k_signing" do
@@ -37,7 +37,7 @@ describe "AwsSES adapter" do
     end
 
     it "create m_signing" do
-      params_for()[:m_signing].should eq "AWS4-HMAC-SHA256\n20190102T154556Z\n20190101/fake_region/ses/aws4_request\nd3cc80138c455e26a60d7bef8dbd29a2afdda481fe289d567a529ab1168c059e"
+      params_for()[:m_signing].should eq "AWS4-HMAC-SHA256\n20190102T154556Z\n20190102/fake_region/ses/aws4_request\nd3cc80138c455e26a60d7bef8dbd29a2afdda481fe289d567a529ab1168c059e"
     end
 
     it "create canonical_string" do
@@ -101,10 +101,13 @@ end
 
 private def params_for(**email_attrs)
   email = FakeEmail.new(**email_attrs)
-  adapter = Carbon::AwsSesAdapter::Email.new(email, key: "fake_key", secret: "fake_secret", region: "fake_region")
+  region = "fake_region"
+  date = Time.utc(2019, 1, 2, 15, 45, 56).to_s("%Y%m%dT%H%M%SZ")
+  adapter = Carbon::AwsSesAdapter::Email.new(email, key: "fake_key", secret: "fake_secret", region: region)
 
   # fix mail send date
-  adapter.date = Time.utc(2019, 1, 2, 15, 45, 56).to_s("%Y%m%dT%H%M%SZ")
+  adapter.date = date
+  adapter.credential_scope = "#{date.split("T")[0]}/#{region}/ses/aws4_request"
   adapter.params
 end
 

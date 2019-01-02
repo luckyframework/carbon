@@ -17,8 +17,8 @@ class Carbon::AwsSesAdapter < Carbon::Adapter
 
   class Email
     MAIL_SEND_PATH = "/"
-    property date : String
-    private getter email, key, secret, region : String
+    property date : String, credential_scope : String
+    private getter email, key, secret, region
     private getter? sandbox : Bool
 
     def initialize(@email : Carbon::Email, @key : String, @secret : String, @region : String, @sandbox = false)
