@@ -31,7 +31,7 @@ describe "Deliver later strategy" do
 end
 
 private def use_custom_strategy(strategy)
-  CustomizedBaseEmail.configure do
+  CustomizedBaseEmail.configure do |settings|
     settings.adapter = Carbon::DevAdapter.new
     settings.deliver_later_strategy = strategy
   end
