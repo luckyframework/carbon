@@ -18,6 +18,12 @@ private class EmailWithTemplates < BareMinimumEmail
   templates text, html
 end
 
+private module Namespaced
+  class EmailWithTemplates < BareMinimumEmail
+    templates text, html
+  end
+end
+
 private class CustomizedRecipientsEmail < BareMinimumEmail
   cc "cc@example.com"
   bcc ["bcc@example.com"]
@@ -97,6 +103,13 @@ describe Carbon::Email do
 
     email.text_body.should contain "text template"
     email.html_body.should contain "html template"
+  end
+
+  it "can render templates on a namespaced class" do
+    email = Namespaced::EmailWithTemplates.new
+
+    email.text_body.should contain "namespaced text template"
+    email.html_body.should contain "namespaced html template"
   end
 
   it "can customize headers" do

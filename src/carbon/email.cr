@@ -28,7 +28,7 @@ abstract class Carbon::Email
       \{% for content_type in content_types %}
         def \{{ content_type }}_body : String
           io = IO::Memory.new
-          ECR.embed "#{__DIR__}/templates/\{{ @type.name.underscore }}/\{{ content_type }}.ecr", io
+          ECR.embed "#{__DIR__}/templates/\{{ @type.name.underscore.gsub(/::/, "_") }}/\{{ content_type }}.ecr", io
           io.to_s
         end
       \{% end %}
