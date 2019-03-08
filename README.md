@@ -14,6 +14,10 @@ dependencies:
     github: luckyframework/carbon
 ```
 
+## Adapters
+- `Carbon::SendGridAdapter`- Ships with Carbon.
+- `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
+
 ## Usage
 
 ### First, create a base class for your emails
