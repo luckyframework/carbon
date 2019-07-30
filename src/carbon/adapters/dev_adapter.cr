@@ -22,16 +22,16 @@ class Carbon::DevAdapter < Carbon::Adapter
 
   private def print_email(email : Carbon::Email)
     puts(
-        "#{"To:".colorize(:green)} #{email.to}",
-        "#{"From:".colorize(:green)} #{email.from}",
-        "#{"Subject:".colorize(:green)} #{email.subject}",
-        "#{"CC:".colorize(:green)} #{email.cc}",
-        "#{"BCC:".colorize(:green)} #{email.bcc}",
-        "#{"Headers:".colorize(:green)} #{email.headers}",
-        "======= TEXT =======".colorize(:green),
-        email.text_body,
-        "======= HTML =======".colorize(:green),
-        email.html_body
-      )
+      "#{"To:".colorize(:green)} #{email.to}",
+      "#{"From:".colorize(:green)} #{email.from}",
+      "#{"Subject:".colorize(:green)} #{email.subject}",
+      "#{"CC:".colorize(:green)} #{email.cc}",
+      "#{"BCC:".colorize(:green)} #{email.bcc}",
+      "#{"Headers:".colorize(:green)} #{email.headers}",
+      "======= TEXT =======".colorize(:green),
+      email.text_body,
+      "======= HTML =======".colorize(:green),
+      email.html_body
+    )
   end
 end
