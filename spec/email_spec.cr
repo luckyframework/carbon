@@ -3,7 +3,7 @@ require "./spec_helper"
 private class User
   include Carbon::Emailable
 
-  def emailable
+  def emailable : Carbon::Address
     Carbon::Address.new("user@example.com")
   end
 end
