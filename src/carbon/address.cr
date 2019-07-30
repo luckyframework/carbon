@@ -15,7 +15,7 @@ class Carbon::Address
   def initialize(@name : String, @address)
   end
 
-  def emailable
+  def emailable : Carbon::Address
     self
   end
 
