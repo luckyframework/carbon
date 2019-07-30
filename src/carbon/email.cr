@@ -4,8 +4,8 @@ abstract class Carbon::Email
   alias Recipients = Carbon::Emailable | Array(Carbon::Emailable)
 
   abstract def subject : String
-  abstract def from : Carbon::Emailable
-  abstract def to : Recipients
+  abstract def from : Carbon::Address
+  abstract def to : Array(Carbon::Address)
 
   def_equals subject, from, to, cc, bcc, headers, text_body, html_body
 
