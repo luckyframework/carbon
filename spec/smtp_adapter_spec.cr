@@ -9,13 +9,16 @@ describe Carbon::SMTPAdapter do
     password = ENV.fetch("SMTP_MAIL_PASSWORD")
     port = ENV.fetch("SMTP_MAIL_PORT").to_i
 
+    sender = ENV.fetch("TEST_TO"){ "you@example.com" }
+    from = ENV.fetch("TEST_FROM"){ "me@example.com" }
+
     config = EMail::Client::Config.new(domain, port)
     config.use_auth(username, password)
     config.use_tls
 
     email = FakeEmail.new(
-      from: Carbon::Address.new("noreply@ticketsdev.helpcube.net"),
-      to: [Carbon::Address.new("yacine@helpcube.net")],
+      from: Carbon::Address.new(sender),
+      to: [Carbon::Address.new(from)],
       subject: "I'm just testing to send an email",
       text_body: "This is a text body and it should work\nWell.",
       html_body: "This is the <strong>html version</strong> and should work<br>too."
