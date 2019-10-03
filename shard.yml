@@ -4,7 +4,7 @@ version: 0.1.1
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: 0.30.0
+crystal: 0.31.1
 
 license: MIT
 
@@ -12,7 +12,8 @@ dependencies:
   habitat:
     github: luckyframework/habitat
   email:
-    github: arcage/crystal-email
+    github: anykeyh/crystal-email
+    branch: master
 
 development_dependencies:
   dotenv:
