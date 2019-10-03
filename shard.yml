@@ -11,6 +11,8 @@ license: MIT
 dependencies:
   habitat:
     github: luckyframework/habitat
+  email:
+    github: arcage/crystal-email
 
 development_dependencies:
   dotenv:
