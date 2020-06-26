@@ -1,5 +1,5 @@
 name: carbon
-version: 0.1.1
+version: 0.1.2
 
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
@@ -11,7 +11,7 @@ license: MIT
 dependencies:
   habitat:
     github: luckyframework/habitat
-    branch: jaw/v0.5.0
+    version: ~> 0.4.4
 
 development_dependencies:
   dotenv:
