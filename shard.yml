@@ -17,3 +17,8 @@ development_dependencies:
   dotenv:
     github: gdotdesign/cr-dotenv
     version: 0.7.0
+
+  ameba:
+    github: veelenga/ameba
+    version: 0.13.1
+

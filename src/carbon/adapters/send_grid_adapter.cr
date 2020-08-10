@@ -54,13 +54,13 @@ class Carbon::SendGridAdapter < Carbon::Adapter
     end
 
     private def reply_to_header
-      reply_to_header = email.headers.select do |key, value|
+      email.headers.select do |key, _value|
         key.downcase == "reply-to"
       end
     end
 
     private def headers : Hash(String, String)
-      email.headers.reject do |key, value|
+      email.headers.reject do |key, _value|
         key.downcase == "reply-to"
       end
     end
@@ -70,7 +70,7 @@ class Carbon::SendGridAdapter < Carbon::Adapter
         to:  to_send_grid_address(email.to),
         cc:  to_send_grid_address(email.cc),
         bcc: to_send_grid_address(email.bcc),
-      }.to_h.reject do |key, value|
+      }.to_h.reject do |_key, value|
         value.empty?
       end
     end
@@ -88,7 +88,7 @@ class Carbon::SendGridAdapter < Carbon::Adapter
       {
         email: email.from.address,
         name:  email.from.name,
-      }.to_h.reject do |key, value|
+      }.to_h.reject do |_key, value|
         value.nil?
       end
     end
