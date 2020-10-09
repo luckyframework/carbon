@@ -72,13 +72,15 @@ templates would go in `src/my_app/emails/welcome_email/text|html.ecr`.
 ```
 # in <folder_of_email_class>/templates/welcome_email/text.ecr
 # Templates have access to instance variables and methods in the email.
-Welcome, #{@name}!
+Welcome, <%= @name %>!
 ```
 
 ```
 # in <folder_of_email_class>/templates/welcome_email/html.ecr
-<h1>Welcome, #{@name}!</h1>
+<h1>Welcome, <%= @name %>!</h1>
 ```
+
+For more information on what you can do with Embedded Crystal (ECR), see [the official Crystal documentation](https://crystal-lang.org/api/latest/ECR.html).
 
 ### Deliver the email
 
