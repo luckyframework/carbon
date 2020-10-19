@@ -17,6 +17,7 @@ dependencies:
 ## Adapters
 - `Carbon::SendGridAdapter`- Ships with Carbon.
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
+- `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
 
 ## Usage
 
