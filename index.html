@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="0.1.2">
+<meta name="crystal_docs.project_name" content="carbon">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="carbon">
+  <title>carbon 0.1.2</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          carbon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.1.2
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="carbon/Carbon" data-name="carbon">
+      <a href="Carbon.html">Carbon</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Adapter" data-name="carbon::adapter">
+      <a href="Carbon/Adapter.html">Adapter</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Address" data-name="carbon::address">
+      <a href="Carbon/Address.html">Address</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/DeliverLaterStrategy" data-name="carbon::deliverlaterstrategy">
+      <a href="Carbon/DeliverLaterStrategy.html">DeliverLaterStrategy</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/DevAdapter" data-name="carbon::devadapter">
+      <a href="Carbon/DevAdapter.html">DevAdapter</a>
+      
+    </li>
+  
+  <li class="parent " data-id="carbon/Carbon/Email" data-name="carbon::email">
+      <a href="Carbon/Email.html">Email</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Email/Recipients" data-name="carbon::email::recipients">
+      <a href="Carbon/Email/Recipients.html">Recipients</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Emailable" data-name="carbon::emailable">
+      <a href="Carbon/Emailable.html">Emailable</a>
+      
+    </li>
+  
+  <li class="parent " data-id="carbon/Carbon/Expectations" data-name="carbon::expectations">
+      <a href="Carbon/Expectations.html">Expectations</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Expectations/BeDeliveredExpectation" data-name="carbon::expectations::bedeliveredexpectation">
+      <a href="Carbon/Expectations/BeDeliveredExpectation.html">BeDeliveredExpectation</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Expectations/FailureMessage" data-name="carbon::expectations::failuremessage">
+      <a href="Carbon/Expectations/FailureMessage.html">FailureMessage</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="carbon/Carbon/SendGridAdapter" data-name="carbon::sendgridadapter">
+      <a href="Carbon/SendGridAdapter.html">SendGridAdapter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/SendGridAdapter/Email" data-name="carbon::sendgridadapter::email">
+      <a href="Carbon/SendGridAdapter/Email.html">Email</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/SpawnStrategy" data-name="carbon::spawnstrategy">
+      <a href="Carbon/SpawnStrategy.html">SpawnStrategy</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/String" data-name="string">
+      <a href="String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="carbon" class="anchor" href="#carbon">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Carbon</h1>
+
+<p><a href="https://luckyframework.github.io/wordsmith" target="_blank"><img src="https://img.shields.io/website?down_color=red&down_message=Offline&label=API%20Documentation&up_message=Online&url=https%3A%2F%2Fluckyframework.github.io%2Fwordsmith%2F" alt="API Documentation Website"/></a></p>
+
+<p>Email library written in Crystal.</p>
+
+<p><img src="https://user-images.githubusercontent.com/22394/38457909-9f16f9fe-3a64-11e8-852c-74e31238f48b.png" alt="code preview"/></p>
+
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+
+<p>Add this to your application's <code>shard.yml</code>:</p>
+
+<pre><code class="language-yaml">dependencies:
+  carbon:
+    github: luckyframework/carbon</code></pre>
+
+<h2><a id="adapters" class="anchor" href="#adapters">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Adapters</h2>
+
+<ul><li><code><a href="Carbon/SendGridAdapter.html">Carbon::SendGridAdapter</a></code>- Ships with Carbon.</li><li><code>Carbon::AwsSesAdapter</code> - See <a href="https://github.com/keizo3/carbon_aws_ses_adapter" target="_blank">keizo3/carbon_aws_ses_adapter</a>.</li><li><code>Carbon::SendInBlueAdapter</code> - See <a href="https://github.com/atnos/carbon_send_in_blue_adapter" target="_blank">atnos/carbon_send_in_blue_adapter</a>.</li></ul>
+
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+
+<h3><a id="first-create-a-base-class-for-your-emails" class="anchor" href="#first-create-a-base-class-for-your-emails">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>First, create a base class for your emails</h3>
+
+<pre><code class="language-crystal"><span class="k">require</span> <span class="s">&quot;carbon&quot;</span>
+
+<span class="c"># You can setup defaults in this class</span>
+<span class="k">abstract</span> <span class="k">class</span> <span class="t">BaseEmail</span> <span class="o">&lt;</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">Email</span>
+  <span class="c"># For example, set up a default &#39;from&#39; address</span>
+  from <span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.<span class="k">new</span>(<span class="s">&quot;My App Name&quot;</span>, <span class="s">&quot;support@myapp.com&quot;</span>)
+  <span class="c"># Use a string if you just need the email address</span>
+  from <span class="s">&quot;support@myapp.com&quot;</span>
+<span class="k">end</span></code></pre>
+
+<h3><a id="configure-the-mailer-class" class="anchor" href="#configure-the-mailer-class">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Configure the mailer class</h3>
+
+<pre><code class="language-crystal"><span class="t">BaseEmail</span>.configure <span class="k">do</span>
+  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">SendGridAdapter</span>.<span class="k">new</span>(api_key: <span class="s">&quot;SEND_GRID_API_KEY&quot;</span>)
+<span class="k">end</span></code></pre>
+
+<h3><a id="create-a-class-for-your-email" class="anchor" href="#create-a-class-for-your-email">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Create a class for your email</h3>
+
+<pre><code class="language-crystal"><span class="c"># Create an email class</span>
+<span class="k">class</span> <span class="t">WelcomeEmail</span> <span class="o">&lt;</span> <span class="t">BaseEmail</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @email_address : <span class="t">String</span>)
+  <span class="k">end</span>
+
+  to @email_address
+  subject <span class="s">&quot;Welcome, </span><span class="i">#{</span>@name<span class="i">}</span><span class="s">!&quot;</span>
+  header <span class="s">&quot;My-Custom-Header&quot;</span>, <span class="s">&quot;header-value&quot;</span>
+  reply_to <span class="s">&quot;no-reply@noreply.com&quot;</span>
+  <span class="c"># You can also do just `text` or `html` if you don&#39;t want both</span>
+  templates text, html
+<span class="k">end</span></code></pre>
+
+<h3><a id="create-templates" class="anchor" href="#create-templates">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Create templates</h3>
+
+<p>Templates go in the same folder the email is in:</p>
+
+<ul><li>Text email: <code><folder_email_class_is_in>/templates/<underscored_class_name>/text.ecr</code></li><li>HTML email: <code><folder_email_class_is_in>/templates/<underscored_class_name>/html.ecr</code></li></ul>
+
+<p>So if your email class is in <code>src/my_app/emails/welcome_email.cr</code>, then your
+templates would go in <code>src/my_app/emails/welcome_email/text|html.ecr</code>.</p>
+
+<pre><code><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/text.ecr</span>
+<span class="c"># Templates have access to instance variables and methods in the email.</span>
+<span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span></code></pre>
+
+<pre><code><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/html.ecr</span>
+<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span><span class="o">&lt;</span><span class="s">/h1&gt;</span></code></pre>
+
+<p>For more information on what you can do with Embedded Crystal (ECR), see <a href="https://crystal-lang.org/api/latest/ECR.html" target="_blank">the official Crystal documentation</a>.</p>
+
+<h3><a id="deliver-the-email" class="anchor" href="#deliver-the-email">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Deliver the email</h3>
+
+<pre><code><span class="c"># Send the email right away!</span>
+<span class="t">WelcomeEmail</span>.<span class="k">new</span>(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver
+
+<span class="c"># Send the email in the background using `spawn`</span>
+<span class="t">WelcomeEmail</span>.<span class="k">new</span>(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver_later</code></pre>
+
+<h2><a id="testing" class="anchor" href="#testing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Testing</h2>
+
+<h3><a id="change-the-adapter" class="anchor" href="#change-the-adapter">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Change the adapter</h3>
+
+<pre><code class="language-crystal"><span class="c"># In spec/spec_helper.cr or wherever you configure your code</span>
+<span class="t">BaseEmail</span>.configure <span class="k">do</span>
+  <span class="c"># This adapter will capture all emails in memory</span>
+  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.<span class="k">new</span>
+<span class="k">end</span></code></pre>
+
+<h3><a id="reset-emails-before-each-spec-and-include-expectations" class="anchor" href="#reset-emails-before-each-spec-and-include-expectations">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Reset emails before each spec and include expectations</h3>
+
+<pre><code class="language-crystal"><span class="c"># In spec/spec_helper.cr</span>
+
+<span class="c"># This gives you the `be_delivered` expectation</span>
+<span class="k">include</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">Expectations</span>
+
+<span class="t">Spec</span>.before_each <span class="k">do</span>
+  <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.reset
+<span class="k">end</span></code></pre>
+
+<h3><a id="integration-testing" class="anchor" href="#integration-testing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Integration testing</h3>
+
+<pre><code class="language-crystal"><span class="c"># Let&#39;s say we have a class that signs the user up and sends the welcome email</span>
+<span class="c"># that was described at the beginning of the README</span>
+<span class="k">class</span> <span class="t">SignUpUser</span>
+  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @email_address : <span class="t">String</span>)
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="m">run</span>
+    sign_user_up
+    <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: @name, email_address: @email_address).deliver_now
+  <span class="k">end</span>
+<span class="k">end</span>
+
+it <span class="s">&quot;sends an email after the user signs up&quot;</span> <span class="k">do</span>
+  <span class="t">SignUpUser</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
+
+  <span class="c"># Test that this email was sent</span>
+  <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).should be_delivered
+<span class="k">end</span></code></pre>
+
+<h3><a id="unit-testing" class="anchor" href="#unit-testing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Unit testing</h3>
+
+<p>Unit testing is simple. Instantiate your email and test the fields you care about.</p>
+
+<pre><code class="language-crystal">it <span class="s">&quot;builds a nice welcome email&quot;</span> <span class="k">do</span>
+  email <span class="o">=</span> <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: <span class="s">&quot;David&quot;</span>, email_address: <span class="s">&quot;david@gmail.com&quot;</span>)
+  <span class="c"># Note that recipients are converted to an array of Carbon::Address</span>
+  <span class="c"># So if you use a string value for the `to` field, you&#39;ll get an array of</span>
+  <span class="c"># Carbon::Address instead.</span>
+  email.to.should eq [<span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.<span class="k">new</span>(<span class="s">&quot;david@gmail.com&quot;</span>)]
+  email.text_body.should contain <span class="s">&quot;Welcome&quot;</span>
+  email.html_body.should contain <span class="s">&quot;Welcome&quot;</span>
+<span class="k">end</span></code></pre>
+
+<blockquote>Note that unit testing can be superfluous in most cases. Instead, try
+> unit testing just fields that have complex logic. The compiler will catch most
+> other issues.</blockquote>
+
+<h2><a id="development" class="anchor" href="#development">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Development</h2>
+
+<ul><li><code>shards install</code></li><li>Make changes</li><li><code>crystal spec -D skip-integration</code> (will skip sending test emails to SendGrid)</li><li><code>crystal spec</code> requires a <code>SEND_GRID_API_KEY</code> ENV variable. Set this in a .env file:</li></ul>
+
+<pre><code><span class="c"># in .env</span>
+<span class="c"># If you want to run tests that actually test emails against the SendGrid server</span>
+<span class="t">SEND_GRID_API_KEY</span><span class="o">=</span>get_from_send_grid</code></pre>
+
+<blockquote>Note: When you open a PR, Travis CI will run the test suite and try sending
+> a sandboxed email through SendGrid. Feel free to open a PR to run integration
+> tests if you don't want to get an API key from SendGrid.</blockquote>
+
+<h2><a id="contributing" class="anchor" href="#contributing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributing</h2>
+
+<ol><li>Fork it ( https://github.com/luckyframework/carbon/fork )</li><li>Create your feature branch (git checkout -b my-new-feature)</li><li>Make your changes</li><li>Run <code>./bin/test</code> to run the specs, build shards, and check formatting</li><li>Commit your changes (git commit -am 'Add some feature')</li><li>Push to the branch (git push origin my-new-feature)</li><li>Create a new Pull Request</li></ol>
+
+<h2><a id="contributors" class="anchor" href="#contributors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Contributors</h2>
+
+<ul><li><a href="https://github.com/paulcsmith]" target="_blank">paulcsmith</a> Paul Smith - creator, maintainer</li></ul>
+</div>
+</body>
+</html>

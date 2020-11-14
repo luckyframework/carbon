@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="0.1.2">
+<meta name="crystal_docs.project_name" content="carbon">
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="carbon">
+  <title>Carbon::Email - carbon 0.1.2</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          carbon
+        </a>
+      </h1>
+
+      <span class="project-version">
+        0.1.2
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="carbon/Carbon" data-name="carbon">
+      <a href="../Carbon.html">Carbon</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Adapter" data-name="carbon::adapter">
+      <a href="../Carbon/Adapter.html">Adapter</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Address" data-name="carbon::address">
+      <a href="../Carbon/Address.html">Address</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/DeliverLaterStrategy" data-name="carbon::deliverlaterstrategy">
+      <a href="../Carbon/DeliverLaterStrategy.html">DeliverLaterStrategy</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/DevAdapter" data-name="carbon::devadapter">
+      <a href="../Carbon/DevAdapter.html">DevAdapter</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="carbon/Carbon/Email" data-name="carbon::email">
+      <a href="../Carbon/Email.html">Email</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Email/Recipients" data-name="carbon::email::recipients">
+      <a href="../Carbon/Email/Recipients.html">Recipients</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Emailable" data-name="carbon::emailable">
+      <a href="../Carbon/Emailable.html">Emailable</a>
+      
+    </li>
+  
+  <li class="parent " data-id="carbon/Carbon/Expectations" data-name="carbon::expectations">
+      <a href="../Carbon/Expectations.html">Expectations</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/Expectations/BeDeliveredExpectation" data-name="carbon::expectations::bedeliveredexpectation">
+      <a href="../Carbon/Expectations/BeDeliveredExpectation.html">BeDeliveredExpectation</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Expectations/FailureMessage" data-name="carbon::expectations::failuremessage">
+      <a href="../Carbon/Expectations/FailureMessage.html">FailureMessage</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="carbon/Carbon/SendGridAdapter" data-name="carbon::sendgridadapter">
+      <a href="../Carbon/SendGridAdapter.html">SendGridAdapter</a>
+      
+        <ul>
+  
+  <li class=" " data-id="carbon/Carbon/SendGridAdapter/Email" data-name="carbon::sendgridadapter::email">
+      <a href="../Carbon/SendGridAdapter/Email.html">Email</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/SpawnStrategy" data-name="carbon::spawnstrategy">
+      <a href="../Carbon/SpawnStrategy.html">SpawnStrategy</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="carbon/String" data-name="string">
+      <a href="../String.html">String</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> Carbon::Email
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Carbon/Email.html">Carbon::Email</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#==(other:self)-instance-method" class="signature"><strong>#==</strong>(other : <span class="k">self</span>)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this reference is the same as <em>other</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bcc-instance-method" class="signature"><strong>#bcc</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cc-instance-method" class="signature"><strong>#cc</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#deliver-instance-method" class="signature"><strong>#deliver</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#deliver_later-instance-method" class="signature"><strong>#deliver_later</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from:Carbon::Address-instance-method" class="signature"><strong>#from</strong> : Carbon::Address</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#headers:Hash(String,String)-instance-method" class="signature"><strong>#headers</strong> : Hash(String, String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#html_body-instance-method" class="signature"><strong>#html_body</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject:String-instance-method" class="signature"><strong>#subject</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#text_body-instance-method" class="signature"><strong>#text_body</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to:Array(Carbon::Address)-instance-method" class="signature"><strong>#to</strong> : Array(Carbon::Address)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#bcc(value)-macro" class="signature"><strong>bcc</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cc(value)-macro" class="signature"><strong>cc</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#configure-macro" class="signature"><strong>configure</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from(value)-macro" class="signature"><strong>from</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#header(key,value)-macro" class="signature"><strong>header</strong>(key, value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_or_method(value)-macro" class="signature"><strong>id_or_method</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reply_to(address)-macro" class="signature"><strong>reply_to</strong>(address)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject(value)-macro" class="signature"><strong>subject</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to(value)-macro" class="signature"><strong>to</strong>(value)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="==(other:self)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <span class="k">self</span>)
+
+        <a class="method-permalink" href="#==(other:self)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns <code>true</code> if this reference is the same as <em>other</em>. Invokes <code>same?</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bcc-instance-method">
+      <div class="signature">
+        
+        def <strong>bcc</strong>
+
+        <a class="method-permalink" href="#bcc-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cc-instance-method">
+      <div class="signature">
+        
+        def <strong>cc</strong>
+
+        <a class="method-permalink" href="#cc-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="deliver-instance-method">
+      <div class="signature">
+        
+        def <strong>deliver</strong>
+
+        <a class="method-permalink" href="#deliver-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="deliver_later-instance-method">
+      <div class="signature">
+        
+        def <strong>deliver_later</strong>
+
+        <a class="method-permalink" href="#deliver_later-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from:Carbon::Address-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>from</strong> : <a href="../Carbon/Address.html">Carbon::Address</a>
+
+        <a class="method-permalink" href="#from:Carbon::Address-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="headers:Hash(String,String)-instance-method">
+      <div class="signature">
+        
+        def <strong>headers</strong> : Hash(<a href="../String.html">String</a>, <a href="../String.html">String</a>)
+
+        <a class="method-permalink" href="#headers:Hash(String,String)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="html_body-instance-method">
+      <div class="signature">
+        
+        def <strong>html_body</strong>
+
+        <a class="method-permalink" href="#html_body-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject:String-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>subject</strong> : <a href="../String.html">String</a>
+
+        <a class="method-permalink" href="#subject:String-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="text_body-instance-method">
+      <div class="signature">
+        
+        def <strong>text_body</strong>
+
+        <a class="method-permalink" href="#text_body-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to:Array(Carbon::Address)-instance-method">
+      <div class="signature">
+        abstract 
+        def <strong>to</strong> : Array(<a href="../Carbon/Address.html">Carbon::Address</a>)
+
+        <a class="method-permalink" href="#to:Array(Carbon::Address)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="bcc(value)-macro">
+      <div class="signature">
+        
+        macro <strong>bcc</strong>(value)
+
+        <a class="method-permalink" href="#bcc(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cc(value)-macro">
+      <div class="signature">
+        
+        macro <strong>cc</strong>(value)
+
+        <a class="method-permalink" href="#cc(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="configure-macro">
+      <div class="signature">
+        
+        macro <strong>configure</strong>
+
+        <a class="method-permalink" href="#configure-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from(value)-macro">
+      <div class="signature">
+        
+        macro <strong>from</strong>(value)
+
+        <a class="method-permalink" href="#from(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="header(key,value)-macro">
+      <div class="signature">
+        
+        macro <strong>header</strong>(key, value)
+
+        <a class="method-permalink" href="#header(key,value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_or_method(value)-macro">
+      <div class="signature">
+        
+        macro <strong>id_or_method</strong>(value)
+
+        <a class="method-permalink" href="#id_or_method(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reply_to(address)-macro">
+      <div class="signature">
+        
+        macro <strong>reply_to</strong>(address)
+
+        <a class="method-permalink" href="#reply_to(address)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject(value)-macro">
+      <div class="signature">
+        
+        macro <strong>subject</strong>(value)
+
+        <a class="method-permalink" href="#subject(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to(value)-macro">
+      <div class="signature">
+        
+        macro <strong>to</strong>(value)
+
+        <a class="method-permalink" href="#to(value)-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>
