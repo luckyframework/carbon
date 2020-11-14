@@ -1,5 +1,7 @@
 # Carbon
 
+[![API Documentation Website](https://img.shields.io/website?down_color=red&down_message=Offline&label=API%20Documentation&up_message=Online&url=https%3A%2F%2Fluckyframework.github.io%2Fwordsmith%2F)](https://luckyframework.github.io/wordsmith)
+
 Email library written in Crystal.
 
 ![code preview](https://user-images.githubusercontent.com/22394/38457909-9f16f9fe-3a64-11e8-852c-74e31238f48b.png)
@@ -15,6 +17,7 @@ dependencies:
 ```
 
 ## Adapters
+
 - `Carbon::SendGridAdapter`- Ships with Carbon.
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
@@ -64,8 +67,8 @@ end
 
 Templates go in the same folder the email is in:
 
-* Text email: `<folder_email_class_is_in>/templates/<underscored_class_name>/text.ecr`
-* HTML email: `<folder_email_class_is_in>/templates/<underscored_class_name>/html.ecr`
+- Text email: `<folder_email_class_is_in>/templates/<underscored_class_name>/text.ecr`
+- HTML email: `<folder_email_class_is_in>/templates/<underscored_class_name>/html.ecr`
 
 So if your email class is in `src/my_app/emails/welcome_email.cr`, then your
 templates would go in `src/my_app/emails/welcome_email/text|html.ecr`.
@@ -163,10 +166,10 @@ end
 
 ## Development
 
-* `shards install`
-* Make changes
-* `crystal spec -D skip-integration` (will skip sending test emails to SendGrid)
-* `crystal spec` requires a `SEND_GRID_API_KEY` ENV variable. Set this in a .env file:
+- `shards install`
+- Make changes
+- `crystal spec -D skip-integration` (will skip sending test emails to SendGrid)
+- `crystal spec` requires a `SEND_GRID_API_KEY` ENV variable. Set this in a .env file:
 
 ```
 # in .env
@@ -190,4 +193,4 @@ SEND_GRID_API_KEY=get_from_send_grid
 
 ## Contributors
 
-* [paulcsmith](https://github.com/paulcsmith]) Paul Smith - creator, maintainer
+- [paulcsmith](https://github.com/paulcsmith]) Paul Smith - creator, maintainer
