@@ -34,9 +34,9 @@ jobs:
           key: ${{ runner.os }}-crystal
       - name: Create .env file
         run: touch .env
-      - name: Run tests with integration
-        if: ${{ env.RUN_INTEGRATION_SPECS }} == true
+      - if: env.RUN_INTEGRATION_SPECS == true
+        name: Run tests with integration
         run: crystal spec
-      - name: Run tests without integration
-        if: ${{ env.RUN_INTEGRATION_SPECS }} != true
+      - if: env.RUN_INTEGRATION_SPECS != true
+        name: Run tests without integration
         run: crystal spec -D skip-integration
