@@ -21,6 +21,7 @@ dependencies:
 - `Carbon::SendGridAdapter`- Ships with Carbon.
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
+- `Carbon::SmtpAdapter` - See [oneiros/carbon_smtp_adapter](https://github.com/oneiros/carbon_smtp_adapter).
 
 ## Usage
 
@@ -41,7 +42,7 @@ end
 ### Configure the mailer class
 
 ```crystal
-BaseEmail.configure do
+BaseEmail.configure do |settings|
   settings.adapter = Carbon::SendGridAdapter.new(api_key: "SEND_GRID_API_KEY")
 end
 ```
@@ -94,6 +95,36 @@ WelcomeEmail.new("Kate", "kate@example.com").deliver
 
 # Send the email in the background using `spawn`
 WelcomeEmail.new("Kate", "kate@example.com").deliver_later
+```
+
+### Delay email delivery
+
+The built-in delay uses the `deliver_later_strategy` setting set to `Carbon::SpawnStrategy`. You can create your own custom delayed strategy
+that inherits from `Carbon::DeliverLaterStrategy` and defines a `run` method that takes a `Carbon::Email` and a block.
+
+One example might be a job processor:
+
+```crystal
+# Define your new delayed strategy
+class SendEmailInJobStrategy < Carbon::DeliverLaterStrategy
+
+  # `block.call` will run `deliver`, but you can call
+  # `deliver` yourself on the `email` when you need.
+  def run(email : Carbon::Email, &block)
+    EmailJob.perform_later(email)
+  end
+end
+
+class EmailJob < JobProcessor
+  def perform(email : Carbon::Email)
+    email.deliver
+  end
+end
+
+# configure to use your new delayed strategy
+BaseEmail.configure do |settings|
+  settings.deliver_later_strategy = SendEmailInJobStrategy.new
+end
 ```
 
 ## Testing
@@ -177,16 +208,16 @@ end
 SEND_GRID_API_KEY=get_from_send_grid
 ```
 
-> Note: When you open a PR, Travis CI will run the test suite and try sending
-> a sandboxed email through SendGrid. Feel free to open a PR to run integration
-> tests if you don't want to get an API key from SendGrid.
+> Note: When you open a PR, Github Actions will not run the integration suite.
+> If you need the integeration suite to run, the `RUN_INTEGRATION_SPECS` env var must
+> be set to `true`.
 
 ## Contributing
 
 1.  Fork it ( https://github.com/luckyframework/carbon/fork )
 2.  Create your feature branch (git checkout -b my-new-feature)
 3.  Make your changes
-4.  Run `./bin/test` to run the specs, build shards, and check formatting
+4.  Run `./script/test` to run the specs, build shards, and check formatting
 5.  Commit your changes (git commit -am 'Add some feature')
 6.  Push to the branch (git push origin my-new-feature)
 7.  Create a new Pull Request
