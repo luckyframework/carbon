@@ -1,4 +1,4 @@
-name: Lucky Flow CI
+name: Lucky Carbon CI
 
 on:
   push:
@@ -13,8 +13,12 @@ jobs:
       image: crystallang/crystal:0.35.0
     steps:
       - uses: actions/checkout@v1
+      - name: Install shards
+        run: shards install
       - name: Format
         run: crystal tool format --check
+      - name: Lint
+        run: ./bin/ameba
   specs:
     runs-on: ubuntu-latest
     container:
@@ -30,5 +34,9 @@ jobs:
           key: ${{ runner.os }}-crystal
       - name: Create .env file
         run: touch .env
-      - name: Run tests
+      - if: env.RUN_INTEGRATION_SPECS == true
+        name: Run tests with integration
+        run: crystal spec
+      - if: env.RUN_INTEGRATION_SPECS != true
+        name: Run tests without integration
         run: crystal spec -D skip-integration
