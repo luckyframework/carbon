@@ -18,7 +18,7 @@
 </svg>
 
   <meta id="repository-name" content="carbon">
-  <title>Carbon::Expectations::FailureMessage - carbon 0.1.2</title>
+  <title>Carbon::Expectations::HaveDeliveredEmailsExpectation - carbon 0.1.2</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -106,8 +106,8 @@
       
     </li>
   
-  <li class=" current" data-id="carbon/Carbon/Expectations/FailureMessage" data-name="carbon::expectations::failuremessage">
-      <a href="../../Carbon/Expectations/FailureMessage.html">FailureMessage</a>
+  <li class=" current" data-id="carbon/Carbon/Expectations/HaveDeliveredEmailsExpectation" data-name="carbon::expectations::havedeliveredemailsexpectation">
+      <a href="../../Carbon/Expectations/HaveDeliveredEmailsExpectation.html">HaveDeliveredEmailsExpectation</a>
       
     </li>
   
@@ -155,12 +155,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Carbon::Expectations::FailureMessage
+  <span class="kind">class</span> Carbon::Expectations::HaveDeliveredEmailsExpectation
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Carbon/Expectations/FailureMessage.html">Carbon::Expectations::FailureMessage</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../Carbon/Expectations/HaveDeliveredEmailsExpectation.html">Carbon::Expectations::HaveDeliveredEmailsExpectation</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -192,23 +192,6 @@
 
 
 
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new(email:Carbon::Email)-class-method" class="signature"><strong>.new</strong>(email : Carbon::Email)</a>
-        
-      </li>
-    
-  </ul>
-
 
 
 
@@ -224,7 +207,17 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#build-instance-method" class="signature"><strong>#build</strong></a>
+        <a href="#failure_message(_carbon:Carbon.class)-instance-method" class="signature"><strong>#failure_message</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#match(_carbon:Carbon.class):Bool-instance-method" class="signature"><strong>#match</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>) : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#negative_failure_message(_carbon:Carbon.class)-instance-method" class="signature"><strong>#negative_failure_message</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>)</a>
         
       </li>
     
@@ -259,30 +252,6 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(email:Carbon::Email)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(email : <a href="../../Carbon/Email.html">Carbon::Email</a>)
-
-        <a class="method-permalink" href="#new(email:Carbon::Email)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-
 
 
 
@@ -296,12 +265,40 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="build-instance-method">
+    <div class="entry-detail" id="failure_message(_carbon:Carbon.class)-instance-method">
       <div class="signature">
         
-        def <strong>build</strong>
+        def <strong>failure_message</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>)
 
-        <a class="method-permalink" href="#build-instance-method">#</a>
+        <a class="method-permalink" href="#failure_message(_carbon:Carbon.class)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="match(_carbon:Carbon.class):Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>match</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>) : Bool
+
+        <a class="method-permalink" href="#match(_carbon:Carbon.class):Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="negative_failure_message(_carbon:Carbon.class)-instance-method">
+      <div class="signature">
+        
+        def <strong>negative_failure_message</strong>(_carbon : <span class="t">Carbon</span>.<span class="k">class</span>)
+
+        <a class="method-permalink" href="#negative_failure_message(_carbon:Carbon.class)-instance-method">#</a>
       </div>
       
       <br/>
