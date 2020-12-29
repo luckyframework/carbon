@@ -19,8 +19,6 @@ describe Carbon::Expectations do
 
   describe "#have_delivered_emails" do
     it "can check that emails were not sent" do
-      adapter = Carbon::DevAdapter.new
-
       Carbon.should_not have_delivered_emails
     end
 
