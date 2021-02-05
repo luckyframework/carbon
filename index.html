@@ -3,28 +3,28 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 0.34.0">
-<meta name="crystal_docs.project_version" content="0.1.2">
+<meta name="generator" content="Crystal Docs 0.35.1">
+<meta name="crystal_docs.project_version" content="0.1.3">
 <meta name="crystal_docs.project_name" content="carbon">
+
 
 
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/doc.js"></script>
 
-<svg class="hidden">
-  <symbol id="octicon-link" viewBox="0 0 16 16">
-    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-  </symbol>
-</svg>
-
-  <meta id="repository-name" content="carbon">
-  <title>carbon 0.1.2</title>
+  <meta name="repository-name" content="carbon">
+  <title>carbon 0.1.3</title>
   <script type="text/javascript">
   CrystalDocs.base_path = "";
   </script>
 </head>
 <body>
 
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
 <div class="sidebar">
   <div class="sidebar-header">
     <div class="search-box">
@@ -39,12 +39,12 @@
       </h1>
 
       <span class="project-version">
-        0.1.2
+        0.1.3
       </span>
     </div>
   </div>
 
-  <div class="search-results" class="hidden">
+  <div class="search-results hidden">
     <ul class="search-list"></ul>
   </div>
 
@@ -159,7 +159,7 @@
   </svg>
 </a>Carbon</h1>
 
-<p><a href="https://luckyframework.github.io/carbon" target="_blank"><img src="https://img.shields.io/website?down_color=red&down_message=Offline&label=API%20Documentation&up_message=Online&url=https%3A%2F%2Fluckyframework.github.io%2Fcarbon%2F" alt="API Documentation Website"/></a></p>
+<p><a href="https://luckyframework.github.io/carbon"><img src="https://img.shields.io/website?down_color=red&down_message=Offline&label=API%20Documentation&up_message=Online&url=https%3A%2F%2Fluckyframework.github.io%2Fcarbon%2F" alt="API Documentation Website"/></a></p>
 
 <p>Email library written in Crystal.</p>
 
@@ -183,7 +183,7 @@
   </svg>
 </a>Adapters</h2>
 
-<ul><li><code><a href="Carbon/SendGridAdapter.html">Carbon::SendGridAdapter</a></code>- Ships with Carbon.</li><li><code>Carbon::AwsSesAdapter</code> - See <a href="https://github.com/keizo3/carbon_aws_ses_adapter" target="_blank">keizo3/carbon_aws_ses_adapter</a>.</li><li><code>Carbon::SendInBlueAdapter</code> - See <a href="https://github.com/atnos/carbon_send_in_blue_adapter" target="_blank">atnos/carbon_send_in_blue_adapter</a>.</li><li><code>Carbon::MailgunAdapter</code> - See <a href="https://github.com/atnos/carbon_mailgun_adapter" target="_blank">atnos/carbon_mailgun_adapter</a>.</li><li><code>Carbon::SmtpAdapter</code> - See <a href="https://github.com/oneiros/carbon_smtp_adapter" target="_blank">oneiros/carbon_smtp_adapter</a>.</li></ul>
+<ul><li><code><a href="Carbon/SendGridAdapter.html">Carbon::SendGridAdapter</a></code>- Ships with Carbon.</li><li><code>Carbon::AwsSesAdapter</code> - See <a href="https://github.com/keizo3/carbon_aws_ses_adapter">keizo3/carbon_aws_ses_adapter</a>.</li><li><code>Carbon::SendInBlueAdapter</code> - See <a href="https://github.com/atnos/carbon_send_in_blue_adapter">atnos/carbon_send_in_blue_adapter</a>.</li><li><code>Carbon::MailgunAdapter</code> - See <a href="https://github.com/atnos/carbon_mailgun_adapter">atnos/carbon_mailgun_adapter</a>.</li><li><code>Carbon::SmtpAdapter</code> - See <a href="https://github.com/oneiros/carbon_smtp_adapter">oneiros/carbon_smtp_adapter</a>.</li></ul>
 
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
@@ -249,14 +249,14 @@
 <p>So if your email class is in <code>src/my_app/emails/welcome_email.cr</code>, then your
 templates would go in <code>src/my_app/emails/welcome_email/text|html.ecr</code>.</p>
 
-<pre><code><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/text.ecr</span>
+<pre><code class="language-crystal"><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/text.ecr</span>
 <span class="c"># Templates have access to instance variables and methods in the email.</span>
 <span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span></code></pre>
 
-<pre><code><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/html.ecr</span>
-<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span><span class="o">&lt;</span><span class="s">/h1&gt;</span></code></pre>
+<pre><code class="language-crystal"># in <folder_of_email_class>/templates/welcome_email/html.ecr
+<h1>Welcome, <%= @name %>!</h1></code></pre>
 
-<p>For more information on what you can do with Embedded Crystal (ECR), see <a href="https://crystal-lang.org/api/latest/ECR.html" target="_blank">the official Crystal documentation</a>.</p>
+<p>For more information on what you can do with Embedded Crystal (ECR), see <a href="https://crystal-lang.org/api/latest/ECR.html">the official Crystal documentation</a>.</p>
 
 <h3><a id="deliver-the-email" class="anchor" href="#deliver-the-email">
   <svg class="octicon-link" aria-hidden="true">
@@ -264,7 +264,7 @@ templates would go in <code>src/my_app/emails/welcome_email/text|html.ecr</code>
   </svg>
 </a>Deliver the email</h3>
 
-<pre><code><span class="c"># Send the email right away!</span>
+<pre><code class="language-crystal"><span class="c"># Send the email right away!</span>
 <span class="t">WelcomeEmail</span>.<span class="k">new</span>(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver
 
 <span class="c"># Send the email in the background using `spawn`</span>
@@ -390,7 +390,7 @@ it <span class="s">&quot;sends an email after the user signs up&quot;</span> <sp
 
 <ul><li><code>shards install</code></li><li>Make changes</li><li><code>crystal spec -D skip-integration</code> (will skip sending test emails to SendGrid)</li><li><code>crystal spec</code> requires a <code>SEND_GRID_API_KEY</code> ENV variable. Set this in a .env file:</li></ul>
 
-<pre><code><span class="c"># in .env</span>
+<pre><code class="language-crystal"><span class="c"># in .env</span>
 <span class="c"># If you want to run tests that actually test emails against the SendGrid server</span>
 <span class="t">SEND_GRID_API_KEY</span><span class="o">=</span>get_from_send_grid</code></pre>
 
@@ -412,7 +412,7 @@ it <span class="s">&quot;sends an email after the user signs up&quot;</span> <sp
   </svg>
 </a>Contributors</h2>
 
-<ul><li><a href="https://github.com/paulcsmith]" target="_blank">paulcsmith</a> Paul Smith - creator, maintainer</li></ul>
+<ul><li><a href="https://github.com/paulcsmith]">paulcsmith</a> Paul Smith - creator, maintainer</li></ul>
 </div>
 </body>
 </html>
