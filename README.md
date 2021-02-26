@@ -23,6 +23,7 @@ dependencies:
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
 - `Carbon::MailgunAdapter` - See [atnos/carbon_mailgun_adapter](https://github.com/atnos/carbon_mailgun_adapter).
 - `Carbon::SmtpAdapter` - See [oneiros/carbon_smtp_adapter](https://github.com/oneiros/carbon_smtp_adapter).
+- `Carbon::PostmarkAdapter` - See [makisu/carbon_postmark_adapter](https://github.com/makisu/carbon_postmark_adapter).
 
 ## Usage
 
