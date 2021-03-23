@@ -1,4 +1,4 @@
-name: Lucky Carbon CI
+name: Carbon CI
 
 on:
   push:
@@ -40,8 +40,8 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     container: crystallang/crystal:${{ matrix.crystal_version }}-alpine
     steps:
-    - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: shards install
-    - name: Run tests
-      run: crystal spec
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: shards install
+      - name: Run tests
+        run: crystal spec
