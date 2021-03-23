@@ -4,19 +4,19 @@ version: 0.1.3
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: 0.36.1
+crystal: ">= 0.36.1, < 2.0.0"
 
 license: MIT
 
 dependencies:
   habitat:
     github: luckyframework/habitat
-    version: ~> 0.4.4
+    branch: master
 
 development_dependencies:
-  dotenv:
-    github: gdotdesign/cr-dotenv
-    version: 0.7.0
+  lucky_env:
+    github: luckyframework/lucky_env
+    branch: master
 
   ameba:
     github: crystal-ameba/ameba
