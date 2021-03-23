@@ -50,9 +50,5 @@ jobs:
         run: shards install
       - name: Create .env file
         run: touch .env
-      - if: env.RUN_INTEGRATION_SPECS == true
-        name: Run tests with integration
+      - name: Run tests
         run: crystal spec
-      - if: env.RUN_INTEGRATION_SPECS != true
-        name: Run tests without integration
-        run: crystal spec -D skip-integration
