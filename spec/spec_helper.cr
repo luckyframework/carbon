@@ -1,9 +1,9 @@
 require "spec"
 require "../src/carbon"
 require "./support/**"
-require "dotenv"
+require "lucky_env"
 
-Dotenv.load
+LuckyEnv.load(".env")
 
 Spec.before_each do
   Carbon::DevAdapter.reset
