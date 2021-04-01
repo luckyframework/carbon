@@ -11,13 +11,13 @@ license: MIT
 dependencies:
   habitat:
     github: luckyframework/habitat
-    branch: master
+    version: ~> 0.4.7
 
 development_dependencies:
   lucky_env:
     github: luckyframework/lucky_env
-    branch: master
+    version: ~> 0.1.1
 
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.13.4
+    version: ~> 0.14.2
