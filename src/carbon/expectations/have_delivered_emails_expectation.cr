@@ -1,6 +1,6 @@
 class Carbon::Expectations::HaveDeliveredEmailsExpectation
   def match(_carbon : Carbon.class) : Bool
-    Carbon::DevAdapter.delivered_emails.any?
+    !Carbon::DevAdapter.delivered_emails.empty?
   end
 
   def failure_message(_carbon : Carbon.class)
