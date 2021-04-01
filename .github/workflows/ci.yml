@@ -41,13 +41,13 @@ jobs:
     container: crystallang/crystal:${{ matrix.crystal_version }}-alpine
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: shards install
       - name: Cache Crystal
         uses: actions/cache@v1
         with:
           path: ~/.cache/crystal
           key: ${{ runner.os }}-crystal
+      - name: Install dependencies
+        run: shards install
       - name: Create .env file
         run: touch .env
       - if: env.RUN_INTEGRATION_SPECS == true
