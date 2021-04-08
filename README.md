@@ -18,7 +18,7 @@ dependencies:
 
 ## Adapters
 
-- `Carbon::SendGridAdapter`- Ships with Carbon.
+- `Carbon::SendGridAdapter`- See [luckyframework/carbon_sendgrid_adapter](https://github.com/luckyframework/carbon_sendgrid_adapter).
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
 - `Carbon::MailgunAdapter` - See [atnos/carbon_mailgun_adapter](https://github.com/atnos/carbon_mailgun_adapter).
@@ -45,7 +45,7 @@ end
 
 ```crystal
 BaseEmail.configure do |settings|
-  settings.adapter = Carbon::SendGridAdapter.new(api_key: "SEND_GRID_API_KEY")
+  settings.adapter = Carbon::DevAdapter.new(print_emails: true)
 end
 ```
 
@@ -201,18 +201,7 @@ end
 
 - `shards install`
 - Make changes
-- `crystal spec -D skip-integration` (will skip sending test emails to SendGrid)
-- `crystal spec` requires a `SEND_GRID_API_KEY` ENV variable. Set this in a .env file:
-
-```
-# in .env
-# If you want to run tests that actually test emails against the SendGrid server
-SEND_GRID_API_KEY=get_from_send_grid
-```
-
-> Note: When you open a PR, Github Actions will not run the integration suite.
-> If you need the integeration suite to run, the `RUN_INTEGRATION_SPECS` env var must
-> be set to `true`.
+- `crystal spec`
 
 ## Contributing
 
@@ -226,4 +215,4 @@ SEND_GRID_API_KEY=get_from_send_grid
 
 ## Contributors
 
-- [paulcsmith](https://github.com/paulcsmith]) Paul Smith - creator, maintainer
+- [paulcsmith](https://github.com/paulcsmith) Paul Smith - creator, maintainer
