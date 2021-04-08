@@ -116,21 +116,6 @@
       
     </li>
   
-  <li class="parent " data-id="carbon/Carbon/SendGridAdapter" data-name="carbon::sendgridadapter">
-      <a href="Carbon/SendGridAdapter.html">SendGridAdapter</a>
-      
-        <ul>
-  
-  <li class=" " data-id="carbon/Carbon/SendGridAdapter/Email" data-name="carbon::sendgridadapter::email">
-      <a href="Carbon/SendGridAdapter/Email.html">Email</a>
-      
-    </li>
-  
-</ul>
-
-      
-    </li>
-  
   <li class=" " data-id="carbon/Carbon/SpawnStrategy" data-name="carbon::spawnstrategy">
       <a href="Carbon/SpawnStrategy.html">SpawnStrategy</a>
       
@@ -183,7 +168,7 @@
   </svg>
 </a>Adapters</h2>
 
-<ul><li><code><a href="Carbon/SendGridAdapter.html">Carbon::SendGridAdapter</a></code>- Ships with Carbon.</li><li><code>Carbon::AwsSesAdapter</code> - See <a href="https://github.com/keizo3/carbon_aws_ses_adapter">keizo3/carbon_aws_ses_adapter</a>.</li><li><code>Carbon::SendInBlueAdapter</code> - See <a href="https://github.com/atnos/carbon_send_in_blue_adapter">atnos/carbon_send_in_blue_adapter</a>.</li><li><code>Carbon::MailgunAdapter</code> - See <a href="https://github.com/atnos/carbon_mailgun_adapter">atnos/carbon_mailgun_adapter</a>.</li><li><code>Carbon::SmtpAdapter</code> - See <a href="https://github.com/oneiros/carbon_smtp_adapter">oneiros/carbon_smtp_adapter</a>.</li><li><code>Carbon::PostmarkAdapter</code> - See <a href="https://github.com/makisu/carbon_postmark_adapter">makisu/carbon_postmark_adapter</a>.</li></ul>
+<ul><li><code>Carbon::SendGridAdapter</code>- See <a href="https://github.com/luckyframework/carbon_sendgrid_adapter">luckyframework/carbon_sendgrid_adapter</a>.</li><li><code>Carbon::AwsSesAdapter</code> - See <a href="https://github.com/keizo3/carbon_aws_ses_adapter">keizo3/carbon_aws_ses_adapter</a>.</li><li><code>Carbon::SendInBlueAdapter</code> - See <a href="https://github.com/atnos/carbon_send_in_blue_adapter">atnos/carbon_send_in_blue_adapter</a>.</li><li><code>Carbon::MailgunAdapter</code> - See <a href="https://github.com/atnos/carbon_mailgun_adapter">atnos/carbon_mailgun_adapter</a>.</li><li><code>Carbon::SmtpAdapter</code> - See <a href="https://github.com/oneiros/carbon_smtp_adapter">oneiros/carbon_smtp_adapter</a>.</li><li><code>Carbon::PostmarkAdapter</code> - See <a href="https://github.com/makisu/carbon_postmark_adapter">makisu/carbon_postmark_adapter</a>.</li></ul>
 
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
@@ -214,7 +199,7 @@
 </a>Configure the mailer class</h3>
 
 <pre><code class="language-crystal"><span class="t">BaseEmail</span>.configure <span class="k">do</span> <span class="o">|</span>settings<span class="o">|</span>
-  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">SendGridAdapter</span>.<span class="k">new</span>(api_key: <span class="s">&quot;SEND_GRID_API_KEY&quot;</span>)
+  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.<span class="k">new</span>(print_emails: <span class="n">true</span>)
 <span class="k">end</span></code></pre>
 
 <h3><a id="create-a-class-for-your-email" class="anchor" href="#create-a-class-for-your-email">
@@ -388,15 +373,7 @@ it <span class="s">&quot;sends an email after the user signs up&quot;</span> <sp
   </svg>
 </a>Development</h2>
 
-<ul><li><code>shards install</code></li><li>Make changes</li><li><code>crystal spec -D skip-integration</code> (will skip sending test emails to SendGrid)</li><li><code>crystal spec</code> requires a <code>SEND_GRID_API_KEY</code> ENV variable. Set this in a .env file:</li></ul>
-
-<pre><code class="language-crystal"><span class="c"># in .env</span>
-<span class="c"># If you want to run tests that actually test emails against the SendGrid server</span>
-<span class="t">SEND_GRID_API_KEY</span><span class="o">=</span>get_from_send_grid</code></pre>
-
-<blockquote>Note: When you open a PR, Github Actions will not run the integration suite.
-> If you need the integeration suite to run, the <code>RUN_INTEGRATION_SPECS</code> env var must
-> be set to <code>true</code>.</blockquote>
+<ul><li><code>shards install</code></li><li>Make changes</li><li><code>crystal spec</code></li></ul>
 
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
@@ -412,7 +389,7 @@ it <span class="s">&quot;sends an email after the user signs up&quot;</span> <sp
   </svg>
 </a>Contributors</h2>
 
-<ul><li><a href="https://github.com/paulcsmith]">paulcsmith</a> Paul Smith - creator, maintainer</li></ul>
+<ul><li><a href="https://github.com/paulcsmith">paulcsmith</a> Paul Smith - creator, maintainer</li></ul>
 </div>
 </body>
 </html>
