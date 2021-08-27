@@ -8,10 +8,21 @@ crystal: ">= 0.36.1, < 2.0.0"
 
 license: MIT
 
+targets:
+  lucky.gen.email:
+    main: src/precompiled_tasks/gen/email.cr
+
 dependencies:
   habitat:
     github: luckyframework/habitat
     version: ~> 0.4.7
+  lucky_task:
+    github: luckyframework/lucky_task
+    version: ~> 0.1.0
+  teeplate:
+    github: luckyframework/teeplate
+  wordsmith:
+    github: luckyframework/wordsmith
 
 development_dependencies:
   lucky_env:
@@ -21,3 +32,6 @@ development_dependencies:
   ameba:
     github: crystal-ameba/ameba
     version: ~> 0.14.2
+
+scripts:
+  postinstall: script/precompile_tasks

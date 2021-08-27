@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+# Precompile tasks if not in production and not in CI
+# Also allow skipping precompilation with an ENV var
+if [ "$LUCKY_ENV" != "production" ] && [ -z "$CI" ] && [ -z "$SKIP_LUCKY_TASK_PRECOMPILATION" ]; then
+    shards build
+    mkdir -p ../../bin
+    cp -r "$PWD/bin" "$PWD/../.."
+fi
