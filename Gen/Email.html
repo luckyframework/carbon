@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="carbon">
-  <title>Carbon::Address - carbon 0.2.0</title>
+  <title>Gen::Email - carbon 0.2.0</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -51,7 +51,7 @@
   <div class="types-list">
     <ul>
   
-  <li class="parent open current" data-id="carbon/Carbon" data-name="carbon">
+  <li class="parent " data-id="carbon/Carbon" data-name="carbon">
       <a href="../Carbon.html">Carbon</a>
       
         <ul>
@@ -61,7 +61,7 @@
       
     </li>
   
-  <li class=" current" data-id="carbon/Carbon/Address" data-name="carbon::address">
+  <li class=" " data-id="carbon/Carbon/Address" data-name="carbon::address">
       <a href="../Carbon/Address.html">Address</a>
       
     </li>
@@ -131,12 +131,12 @@
       
     </li>
   
-  <li class="parent " data-id="carbon/Gen" data-name="gen">
+  <li class="parent open current" data-id="carbon/Gen" data-name="gen">
       <a href="../Gen.html">Gen</a>
       
         <ul>
   
-  <li class=" " data-id="carbon/Gen/Email" data-name="gen::email">
+  <li class=" current" data-id="carbon/Gen/Email" data-name="gen::email">
       <a href="../Gen/Email.html">Email</a>
       
     </li>
@@ -160,12 +160,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Carbon::Address
+  <span class="kind">class</span> Gen::Email
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Carbon/Address.html">Carbon::Address</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Gen/Email.html">Gen::Email</a></li><li class="superclass">LuckyTask::Task</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -184,7 +184,7 @@
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type"><a href="../Carbon/Emailable.html">Carbon::Emailable</a></li>
+      <li class="other-type">LuckyTask::TextHelpers</li>
     
   </ul>
 
@@ -209,29 +209,26 @@
 
 
 
-
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
+      Constant Summary
+    </h2>
+  
+  <dl>
     
-      <li class="entry-summary">
-        <a href="#new(name:String,address)-class-method" class="signature"><strong>.new</strong>(name : String, address)</a>
-        
-      </li>
+      <dt class="entry-const" id="PARSER_OPTS">
+        <strong>PARSER_OPTS</strong> = <code>[<span class="n">:email_name</span>] <span class="k">of</span> <span class="t">Symbol</span></code>
+      </dt>
+      
     
-      <li class="entry-summary">
-        <a href="#new(address)-class-method" class="signature"><strong>.new</strong>(address)</a>
-        
-      </li>
-    
-  </ul>
+  </dl>
+
+
 
 
 
@@ -248,38 +245,57 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#==(other:self)-instance-method" class="signature"><strong>#==</strong>(other : <span class="k">self</span>)</a>
-        
-          <div class="summary"><p>Returns <code>true</code> if this reference is the same as <em>other</em>.</p></div>
+        <a href="#call-instance-method" class="signature"><strong>#call</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#address:String-instance-method" class="signature"><strong>#address</strong> : String</a>
+        <a href="#email_name:String-instance-method" class="signature"><strong>#email_name</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#emailable:Carbon::Address-instance-method" class="signature"><strong>#emailable</strong> : Carbon::Address</a>
+        <a href="#help_message-instance-method" class="signature"><strong>#help_message</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name:String?-instance-method" class="signature"><strong>#name</strong> : String?</a>
+        <a href="#name-instance-method" class="signature"><strong>#name</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_s(io:IO)-instance-method" class="signature"><strong>#to_s</strong>(io : IO)</a>
-        
-          <div class="summary"><p>Appends a short String representation of this object which includes its class name and its object address.</p></div>
+        <a href="#option_parser:OptionParser-instance-method" class="signature"><strong>#option_parser</strong> : OptionParser</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#to_s:String-instance-method" class="signature"><strong>#to_s</strong> : String</a>
+        <a href="#option_parser=(option_parser:OptionParser)-instance-method" class="signature"><strong>#option_parser=</strong>(option_parser : OptionParser)</a>
         
-          <div class="summary"><p>Returns a string representation of this object.</p></div>
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#output:IO-instance-method" class="signature"><strong>#output</strong> : IO</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#output=(output:IO)-instance-method" class="signature"><strong>#output=</strong>(output : IO)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#print_help_or_call(args:Array(String))-instance-method" class="signature"><strong>#print_help_or_call</strong>(args : Array(String))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_opt_for_email_name(args:Array(String))-instance-method" class="signature"><strong>#set_opt_for_email_name</strong>(args : Array(String))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#summary-instance-method" class="signature"><strong>#summary</strong></a>
         
       </li>
     
@@ -293,19 +309,15 @@
   
     
 
-  <h3>Instance methods inherited from module <code><a href="../Carbon/Emailable.html">Carbon::Emailable</a></code></h3>
-  
-  
-    <a href="../Carbon/Emailable.html#carbon_address:Carbon::Address-instance-method" class="tooltip">
-      <span>carbon_address : Carbon::Address</span>
-    carbon_address</a>, 
+
     
-  
-    <a href="../Carbon/Emailable.html#carbon_address_for_from:Carbon::Address-instance-method" class="tooltip">
-      <span>carbon_address_for_from : Carbon::Address</span>
-    carbon_address_for_from</a>
+
+
     
+
+
   
+    
 
 
     
@@ -338,44 +350,6 @@
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(name:String,address)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(name : <a href="../String.html">String</a>, address)
-
-        <a class="method-permalink" href="#new(name:String,address)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="new(address)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(address)
-
-        <a class="method-permalink" href="#new(address)-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-
 
 
 
@@ -389,35 +363,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="==(other:self)-instance-method">
+    <div class="entry-detail" id="call-instance-method">
       <div class="signature">
         
-        def <strong>==</strong>(other : <span class="k">self</span>)
+        def <strong>call</strong>
 
-        <a class="method-permalink" href="#==(other:self)-instance-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from class Reference
-            </div>
-          
-          <p>Returns <code>true</code> if this reference is the same as <em>other</em>. Invokes <code>same?</code>.</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="address:String-instance-method">
-      <div class="signature">
-        
-        def <strong>address</strong> : <a href="../String.html">String</a>
-
-        <a class="method-permalink" href="#address:String-instance-method">#</a>
+        <a class="method-permalink" href="#call-instance-method">#</a>
       </div>
       
       <br/>
@@ -426,12 +377,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="emailable:Carbon::Address-instance-method">
+    <div class="entry-detail" id="email_name:String-instance-method">
       <div class="signature">
         
-        def <strong>emailable</strong> : <a href="../Carbon/Address.html">Carbon::Address</a>
+        def <strong>email_name</strong> : <a href="../String.html">String</a>
 
-        <a class="method-permalink" href="#emailable:Carbon::Address-instance-method">#</a>
+        <a class="method-permalink" href="#email_name:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -440,12 +391,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="name:String?-instance-method">
+    <div class="entry-detail" id="help_message-instance-method">
       <div class="signature">
         
-        def <strong>name</strong> : <a href="../String.html">String</a>?
+        def <strong>help_message</strong>
 
-        <a class="method-permalink" href="#name:String?-instance-method">#</a>
+        <a class="method-permalink" href="#help_message-instance-method">#</a>
       </div>
       
       <br/>
@@ -454,30 +405,13 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="to_s(io:IO)-instance-method">
+    <div class="entry-detail" id="name-instance-method">
       <div class="signature">
         
-        def <strong>to_s</strong>(io : IO)
+        def <strong>name</strong>
 
-        <a class="method-permalink" href="#to_s(io:IO)-instance-method">#</a>
+        <a class="method-permalink" href="#name-instance-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from class Reference
-            </div>
-          
-          <p>Appends a short String representation of this object
-which includes its class name and its object address.</p>
-
-<pre><code class="language-crystal"><span class="k">class</span> <span class="t">Person</span>
-  <span class="k">def</span> <span class="m">initialize</span>(@name : <span class="t">String</span>, @age : <span class="t">Int32</span>)
-  <span class="k">end</span>
-<span class="k">end</span>
-
-<span class="t">Person</span>.<span class="k">new</span>(<span class="s">&quot;John&quot;</span>, <span class="n">32</span>).to_s <span class="c"># =&gt; #&lt;Person:0x10a199f20&gt;</span></code></pre>
-        </div>
       
       <br/>
       <div>
@@ -485,26 +419,97 @@ which includes its class name and its object address.</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="to_s:String-instance-method">
+    <div class="entry-detail" id="option_parser:OptionParser-instance-method">
       <div class="signature">
         
-        def <strong>to_s</strong> : <a href="../String.html">String</a>
+        def <strong>option_parser</strong> : OptionParser
 
-        <a class="method-permalink" href="#to_s:String-instance-method">#</a>
+        <a class="method-permalink" href="#option_parser:OptionParser-instance-method">#</a>
       </div>
       
-        <div class="doc">
-          
-            <div class="doc-inherited">
-              Description copied from class Object
-            </div>
-          
-          <p>Returns a string representation of this object.</p>
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="option_parser=(option_parser:OptionParser)-instance-method">
+      <div class="signature">
+        
+        def <strong>option_parser=</strong>(option_parser : OptionParser)
 
-<p>Descendants must usually <strong>not</strong> override this method. Instead,
-they must override <code><a href="../Carbon/Address.html#to_s(io:IO)-instance-method">#to_s(io)</a></code>, which must append to the given
-IO object.</p>
-        </div>
+        <a class="method-permalink" href="#option_parser=(option_parser:OptionParser)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="output:IO-instance-method">
+      <div class="signature">
+        
+        def <strong>output</strong> : IO
+
+        <a class="method-permalink" href="#output:IO-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="output=(output:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>output=</strong>(output : IO)
+
+        <a class="method-permalink" href="#output=(output:IO)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="print_help_or_call(args:Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>print_help_or_call</strong>(args : Array(<a href="../String.html">String</a>))
+
+        <a class="method-permalink" href="#print_help_or_call(args:Array(String))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_opt_for_email_name(args:Array(String))-instance-method">
+      <div class="signature">
+        
+        def <strong>set_opt_for_email_name</strong>(args : Array(<a href="../String.html">String</a>))
+
+        <a class="method-permalink" href="#set_opt_for_email_name(args:Array(String))-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="summary-instance-method">
+      <div class="signature">
+        
+        def <strong>summary</strong>
+
+        <a class="method-permalink" href="#summary-instance-method">#</a>
+      </div>
       
       <br/>
       <div>
