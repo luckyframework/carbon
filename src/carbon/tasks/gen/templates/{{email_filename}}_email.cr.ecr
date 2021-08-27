@@ -1,0 +1,28 @@
+class <%= @email_class_name %>Email < BaseEmail
+  # Read more on emails
+  # https://luckyframework.org/guides/emails/sending-emails-with-carbon
+  #
+  # Send this email with:
+  # ```
+  # recipient = UserQuery.first
+  # <%= @email_class_name %>Email.new(recipient).deliver
+  # ```
+
+  def initialize(@recipient : Carbon::Emailable)
+  end
+
+  to @recipient
+  from "myapp@support.com" # or set a default in src/emails/base_email.cr
+  subject :email_subject
+  templates html, text
+
+  private def email_subject : String
+    {%
+    raise <<-MESSAGE
+    No subject has been defined for <%= @email_class_name %>Email.
+
+    Be sure to replace the `:email_subject` with your subject
+    MESSAGE
+    %}
+  end
+end
