@@ -28,10 +28,9 @@ development_dependencies:
   lucky_env:
     github: luckyframework/lucky_env
     version: ~> 0.1.1
-
   ameba:
     github: crystal-ameba/ameba
     version: ~> 0.14.2
 
 scripts:
-  postinstall: script/precompile_tasks
+  postinstall: BUILD_WITHOUT_DEVELOPMENT=true script/precompile_tasks
