@@ -4,7 +4,7 @@ version: 0.2.1
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: ">= 1.0.0"
+crystal: ">= 1.4.0"
 
 license: MIT
 
@@ -32,7 +32,7 @@ development_dependencies:
     version: ~> 0.1.4
   ameba:
     github: crystal-ameba/ameba
-    version: ~> 0.14.3
+    version: ~> 1.0.0
 
 scripts:
   postinstall: BUILD_WITHOUT_DEVELOPMENT=true script/precompile_tasks
