@@ -10,19 +10,14 @@ jobs:
   check_format:
     strategy:
       fail-fast: false
-      matrix:
-        crystal_version:
-          - 1.0.0
-          - 1.1.0
-          - 1.2.0
-          - 1.3.0
-        experimental:
-          - false
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.experimental }}
-    container: crystallang/crystal:${{ matrix.crystal_version }}-alpine
+    continue-on-error: false
     steps:
       - uses: actions/checkout@v1
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: latest
       - name: Install shards
         run: shards install
       - name: Format
@@ -34,22 +29,17 @@ jobs:
       fail-fast: false
       matrix:
         crystal_version:
-          - 1.0.0
-          - 1.1.0
-          - 1.2.0
-          - 1.3.0
+          - 1.4.0
+          - latest
         experimental:
           - false
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental }}
-    container: crystallang/crystal:${{ matrix.crystal_version }}-alpine
     steps:
       - uses: actions/checkout@v2
-      - name: Cache Crystal
-        uses: actions/cache@v1
+      - uses: crystal-lang/install-crystal@v1
         with:
-          path: ~/.cache/crystal
-          key: ${{ runner.os }}-crystal
+          crystal: ${{matrix.crystal_version}}
       - name: Install dependencies
         run: shards install
       - name: Create .env file
