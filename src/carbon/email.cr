@@ -45,7 +45,6 @@ abstract class Carbon::Email
     # layout email_layout
     # ```
     macro layout(template_name)
-      # Use the layout in `templates/\{{ template_name.id }}/layout.ecr`
       def html_layout(content_io : IO)
         content = content_io.to_s
         layout_io = IO::Memory.new
