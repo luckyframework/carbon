@@ -19,7 +19,11 @@ abstract class Carbon::Email
 
   def text_body; end
 
+  def text_layout(content_io : IO); end
+
   def html_body; end
+
+  def html_layout(content_io : IO); end
 
   getter headers
 
@@ -27,11 +31,27 @@ abstract class Carbon::Email
     macro templates(*content_types)
       \{% for content_type in content_types %}
         def \{{ content_type }}_body : String
-          io = IO::Memory.new
-          ECR.embed "#{__DIR__}/templates/\{{ @type.name.underscore.gsub(/::/, "_") }}/\{{ content_type }}.ecr", io
-          io.to_s
+          content_io = IO::Memory.new
+          ECR.embed "#{__DIR__}/templates/\{{ @type.name.underscore.gsub(/::/, "_") }}/\{{ content_type }}.ecr", content_io
+          \{{ content_type }}_layout(content_io) || content_io.to_s
         end
       \{% end %}
+    end
+
+    # Specify an HTML template layout
+    #
+    # ```
+    # templates html
+    # layout email_layout
+    # ```
+    macro layout(template_name)
+      # Use the layout in `templates/\{{ template_name.id }}/layout.ecr`
+      def html_layout(content_io : IO)
+        content = content_io.to_s
+        layout_io = IO::Memory.new
+        ECR.embed "#{__DIR__}/templates/\{{ template_name.id }}/layout.ecr", layout_io
+        layout_io.to_s
+      end
     end
   end
 

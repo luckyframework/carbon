@@ -73,6 +73,11 @@ private class EmailWithCustomAttributes < Carbon::Email
   end
 end
 
+private class EmailWithLayout < BareMinimumEmail
+  templates html
+  layout custom_layout
+end
+
 describe Carbon::Email do
   it "can build a bare minimum email" do
     email = BareMinimumEmail.new
@@ -134,5 +139,11 @@ describe Carbon::Email do
   end
 
   it "normalizes recipients" do
+  end
+
+  it "includes a layout" do
+    email = EmailWithLayout.new
+    email.html_body.should contain "Email Layout"
+    email.html_body.should contain "Email body"
   end
 end
