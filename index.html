@@ -242,14 +242,36 @@
 <li>Text email: <code>&lt;folder_email_class_is_in&gt;/templates/&lt;underscored_class_name&gt;/text.ecr</code></li>
 <li>HTML email: <code>&lt;folder_email_class_is_in&gt;/templates/&lt;underscored_class_name&gt;/html.ecr</code></li>
 </ul>
-<p>So if your email class is in <code>src/my_app/emails/welcome_email.cr</code>, then your
-templates would go in <code>src/my_app/emails/welcome_email/text|html.ecr</code>.</p>
+<p>So if your email class is in <code>src/emails/welcome_email.cr</code>, then your
+templates would go in <code>src/emails/templates/welcome_email/text|html.ecr</code>.</p>
 <pre><code class="language-crystal"><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/text.ecr</span>
 <span class="c"># Templates have access to instance variables and methods in the email.</span>
 <span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span></code></pre>
 <pre><code class="language-crystal"># in &lt;folder_of_email_class&gt;/templates/welcome_email/html.ecr
 &lt;h1&gt;Welcome, &lt;%= @name %&gt;!&lt;/h1&gt;</code></pre>
 <p>For more information on what you can do with Embedded Crystal (ECR), see <a href="https://crystal-lang.org/api/latest/ECR.html">the official Crystal documentation</a>.</p>
+<h3><a id="template-layouts" class="anchor" href="#template-layouts">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Template layouts</h3>
+<p>Layouts are optional allowing you to specify how each email template looks individually.
+If you'd like to have the same layout on each, you can create a layout template in
+<code>&lt;folder_email_class_is_in&gt;/templates/&lt;layout_name&gt;/layout.ecr</code></p>
+<p>In this file, you'll yield the main email body with <code>&lt;%= content %&gt;</code>. Then in your <code>BaseEmail</code>, you can specify the name of the layout.</p>
+<pre><code class="language-crystal"><span class="k">abstract</span> <span class="k">class</span> <span class="t">BaseEmail</span> <span class="o">&lt;</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">Email</span>
+  <span class="k">macro</span> inherited
+    from default_from
+    layout <span class="n">:application_layout</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+<pre><code class="language-crystal"><span class="c"># in src/emails/templates/application_layout/layout.ecr</span>
+
+<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Our</span> <span class="t">Email</span><span class="o">&lt;</span><span class="s">/h1&gt;
+
+&lt;%= content %&gt;
+
+&lt;div&gt;footer&lt;/</span>div<span class="o">&gt;</span></code></pre>
 <h3><a id="deliver-the-email" class="anchor" href="#deliver-the-email">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -329,7 +351,7 @@ that inherits from <code><a href="Carbon/DeliverLaterStrategy.html">Carbon::Deli
 
   <span class="k">def</span> <span class="m">run</span>
     sign_user_up
-    <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: @name, email_address: @email_address).deliver_now
+    <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: @name, email_address: @email_address).deliver
   <span class="k">end</span>
 <span class="k">end</span>
 
@@ -338,6 +360,13 @@ it <span class="s">&quot;sends an email after the user signs up&quot;</span> <sp
 
   <span class="c"># Test that this email was sent</span>
   <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).should be_delivered
+<span class="k">end</span>
+
+<span class="c"># or we can just check that some emails were sent</span>
+it <span class="s">&quot;sends some emails&quot;</span> <span class="k">do</span>
+  <span class="t">SignUpUser</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
+
+  <span class="t">Carbon</span>.should have_delivered_emails
 <span class="k">end</span></code></pre>
 <h3><a id="unit-testing" class="anchor" href="#unit-testing">
   <svg class="octicon-link" aria-hidden="true">
@@ -367,7 +396,8 @@ other issues.</p>
 <ul>
 <li><code>shards install</code></li>
 <li>Make changes</li>
-<li><code>crystal spec</code></li>
+<li><code>./script/test</code></li>
+<li><code>./bin/ameba</code></li>
 </ul>
 <h2><a id="contributing" class="anchor" href="#contributing">
   <svg class="octicon-link" aria-hidden="true">
@@ -389,7 +419,7 @@ other issues.</p>
   </svg>
 </a>Contributors</h2>
 <ul>
-<li><a href="https://github.com/paulcsmith">paulcsmith</a> Paul Smith - creator, maintainer</li>
+<li><a href="https://github.com/paulcsmith">paulcsmith</a> Paul Smith - creator</li>
 </ul>
 </div>
 </body>
