@@ -74,8 +74,8 @@ Templates go in the same folder the email is in:
 - Text email: `<folder_email_class_is_in>/templates/<underscored_class_name>/text.ecr`
 - HTML email: `<folder_email_class_is_in>/templates/<underscored_class_name>/html.ecr`
 
-So if your email class is in `src/my_app/emails/welcome_email.cr`, then your
-templates would go in `src/my_app/emails/welcome_email/text|html.ecr`.
+So if your email class is in `src/emails/welcome_email.cr`, then your
+templates would go in `src/emails/templates/welcome_email/text|html.ecr`.
 
 ```
 # in <folder_of_email_class>/templates/welcome_email/text.ecr
@@ -89,6 +89,33 @@ Welcome, <%= @name %>!
 ```
 
 For more information on what you can do with Embedded Crystal (ECR), see [the official Crystal documentation](https://crystal-lang.org/api/latest/ECR.html).
+
+### Template layouts
+
+Layouts are optional allowing you to specify how each email template looks individually.
+If you'd like to have the same layout on each, you can create a layout template in
+`<folder_email_class_is_in>/templates/<layout_name>/layout.ecr`
+
+In this file, you'll yield the main email body with `<%= content %>`. Then in your `BaseEmail`, you can specify the name of the layout.
+
+```crystal
+abstract class BaseEmail < Carbon::Email
+  macro inherited
+    from default_from
+    layout :application_layout
+  end
+end
+```
+
+```
+# in src/emails/templates/application_layout/layout.ecr
+
+<h1>Our Email</h1>
+
+<%= content %>
+
+<div>footer</div>
+```
 
 ### Deliver the email
 
@@ -166,7 +193,7 @@ class SignUpUser
 
   def run
     sign_user_up
-    WelcomeEmail.new(name: @name, email_address: @email_address).deliver_now
+    WelcomeEmail.new(name: @name, email_address: @email_address).deliver
   end
 end
 
@@ -175,6 +202,13 @@ it "sends an email after the user signs up" do
 
   # Test that this email was sent
   WelcomeEmail.new(name: "Emily", email_address: "em@gmail.com").should be_delivered
+end
+
+# or we can just check that some emails were sent
+it "sends some emails" do
+  SignUpUser.new(name: "Emily", email_address: "em@gmail.com").run
+
+  Carbon.should have_delivered_emails
 end
 ```
 
@@ -202,7 +236,8 @@ end
 
 - `shards install`
 - Make changes
-- `crystal spec`
+- `./script/test`
+- `./bin/ameba`
 
 ## Contributing
 
@@ -216,4 +251,4 @@ end
 
 ## Contributors
 
-- [paulcsmith](https://github.com/paulcsmith) Paul Smith - creator, maintainer
+- [paulcsmith](https://github.com/paulcsmith) Paul Smith - creator
