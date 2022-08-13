@@ -1,6 +1,9 @@
 require "./spec_helper"
 
 abstract class BaseTestEmail < Carbon::Email
+  subject "My great subject"
+  from Carbon::Address.new("from@example.com")
+  to Carbon::Address.new("to@example.com")
 end
 
 BaseTestEmail.configure do |setting|
@@ -8,10 +11,6 @@ BaseTestEmail.configure do |setting|
 end
 
 private class EmailWithBeforeCallbacks < BaseTestEmail
-  subject "My great subject"
-  from Carbon::Address.new("from@example.com")
-  to Carbon::Address.new("to@example.com")
-
   property ran_before_callback : Bool = false
 
   before_send do
@@ -20,10 +19,6 @@ private class EmailWithBeforeCallbacks < BaseTestEmail
 end
 
 private class EmailWithAfterCallbacks < BaseTestEmail
-  subject "My great subject"
-  from Carbon::Address.new("from@example.com")
-  to Carbon::Address.new("to@example.com")
-
   property ran_after_callback : Bool = false
 
   after_send do |_response|
@@ -32,10 +27,6 @@ private class EmailWithAfterCallbacks < BaseTestEmail
 end
 
 private class EmailWithBothBeforeAndAfterCallbacks < BaseTestEmail
-  subject "My great subject"
-  from Carbon::Address.new("from@example.com")
-  to Carbon::Address.new("to@example.com")
-
   property ran_before_callback : Bool = false
   property ran_after_callback : Bool = false
 
@@ -47,6 +38,21 @@ private class EmailWithBothBeforeAndAfterCallbacks < BaseTestEmail
   end
 
   private def mark_after_send(_response)
+    self.ran_after_callback = true
+  end
+end
+
+private class EmailUsingBeforeToStopSending < BaseTestEmail
+  before_send :dont_actually_send
+  after_send :never_actually_ran
+
+  property ran_after_callback : Bool = false
+
+  private def dont_actually_send
+    @deliverable = false
+  end
+
+  private def never_actually_ran(_response)
     self.ran_after_callback = true
   end
 end
@@ -84,6 +90,16 @@ describe "before/after callbacks" do
 
       email.ran_before_callback.should eq(true)
       email.ran_after_callback.should eq(true)
+    end
+  end
+
+  context "Halting the deliver before it's sent" do
+    it "never sends" do
+      email = EmailUsingBeforeToStopSending.new
+      email.deliver
+      Carbon.should_not have_delivered_emails
+      email.deliverable?.should eq(false)
+      email.ran_after_callback.should eq(false)
     end
   end
 end

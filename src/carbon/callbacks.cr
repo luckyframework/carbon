@@ -5,7 +5,7 @@ module Carbon::Callbacks
   # before_send :attach_metadata
   #
   # private def attach_metadata
-  #   #...
+  #   # ...
   # end
   # ```
   macro before_send(method_name)
@@ -18,7 +18,7 @@ module Carbon::Callbacks
   #
   # ```
   # before_send do
-  #   #...
+  #   # ...
   # end
   # ```
   macro before_send

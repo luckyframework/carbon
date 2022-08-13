@@ -10,6 +10,10 @@ abstract class Carbon::Email
 
   def_equals subject, from, to, cc, bcc, headers, text_body, html_body
 
+  # Set this value to `false` to prevent the email from
+  # being delivered
+  property? deliverable : Bool = true
+
   def cc
     [] of Carbon::Address
   end
@@ -128,8 +132,11 @@ abstract class Carbon::Email
 
   def deliver
     before_send
-    response = settings.adapter.deliver_now(self)
-    after_send(response)
+
+    if deliverable?
+      response = settings.adapter.deliver_now(self)
+      after_send(response)
+    end
   end
 
   def deliver_later
