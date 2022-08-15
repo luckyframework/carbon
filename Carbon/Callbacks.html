@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="carbon">
-  <title>Carbon::EmailTemplate - carbon main</title>
+  <title>Carbon::Callbacks - carbon main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -66,7 +66,7 @@
       
     </li>
   
-  <li class=" " data-id="carbon/Carbon/Callbacks" data-name="carbon::callbacks">
+  <li class=" current" data-id="carbon/Carbon/Callbacks" data-name="carbon::callbacks">
       <a href="../Carbon/Callbacks.html">Callbacks</a>
       
     </li>
@@ -101,7 +101,7 @@
       
     </li>
   
-  <li class=" current" data-id="carbon/Carbon/EmailTemplate" data-name="carbon::emailtemplate">
+  <li class=" " data-id="carbon/Carbon/EmailTemplate" data-name="carbon::emailtemplate">
       <a href="../Carbon/EmailTemplate.html">EmailTemplate</a>
       
     </li>
@@ -165,12 +165,11 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> Carbon::EmailTemplate
+  <span class="kind">module</span> Carbon::Callbacks
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../Carbon/EmailTemplate.html">Carbon::EmailTemplate</a></li><li class="superclass">Teeplate::FileTree</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -184,6 +183,19 @@
 
 
 
+  <h2>
+    <a id="direct-including-types" class="anchor" href="#direct-including-types">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct including types
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../Carbon/Email.html">Carbon::Email</a></li>
+    
+  </ul>
 
 
 
@@ -198,8 +210,8 @@
   </h2>
   
     
-      <a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L6" target="_blank">
-        carbon/tasks/gen/email.cr
+      <a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/callbacks.cr#L1" target="_blank">
+        carbon/callbacks.cr
       </a>
     
     <br/>
@@ -209,214 +221,176 @@
 
 
 
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new%28email_filename%3AString%2Cemail_class_name%3AString%29-class-method" class="signature"><strong>.new</strong>(email_filename : String, email_class_name : String)</a>
-        
-      </li>
-    
-  </ul>
+
 
 
 
 
 
   <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+    <a id="macro-summary" class="anchor" href="#macro-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Summary
+    Macro Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#____collect_files%28____files%29-instance-method" class="signature"><strong>#____collect_files</strong>(____files)</a>
+        <a href="#after_send%28method_name%29-macro" class="signature"><strong>after_send</strong>(method_name)</a>
         
-          <div class="summary"><p>:nodoc:</p></div>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#__ecr0%28____io%29-instance-method" class="signature"><strong>#__ecr0</strong>(____io)</a>
+          <div class="summary"><p>Runs the given method after the adapter calls <code>deliver_now</code>.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#__ecr2%28____io%29-instance-method" class="signature"><strong>#__ecr2</strong>(____io)</a>
+        <a href="#after_send%28%26block%29-macro" class="signature"><strong>after_send</strong>(&block)</a>
+        
+          <div class="summary"><p>Runs the block after the adapter calls <code>deliver_now</code>, and passes the return value of the adapter's <code>deliver_now</code> method to the block.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#__ecr4%28____io%29-instance-method" class="signature"><strong>#__ecr4</strong>(____io)</a>
+        <a href="#before_send%28method_name%29-macro" class="signature"><strong>before_send</strong>(method_name)</a>
+        
+          <div class="summary"><p>Runs the given method before the adapter calls <code>deliver_now</code></p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before_send-macro" class="signature"><strong>before_send</strong></a>
+        
+          <div class="summary"><p>Runs the block before the adapter calls <code>deliver_now</code></p></div>
         
       </li>
     
   </ul>
-
-
 
 
 
 <div class="methods-inherited">
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
 
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(email_filename:String,email_class_name:String)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(email_filename : <a href="../String.html">String</a>, email_class_name : <a href="../String.html">String</a>)
 
-        <a class="method-permalink" href="#new%28email_filename%3AString%2Cemail_class_name%3AString%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L9" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
 
 
   <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+    <a id="macro-detail" class="anchor" href="#macro-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Detail
+    Macro Detail
   </h2>
   
-    <div class="entry-detail" id="____collect_files(____files)-instance-method">
+    <div class="entry-detail" id="after_send(method_name)-macro">
       <div class="signature">
         
-        def <strong>____collect_files</strong>(____files)
+        macro <strong>after_send</strong>(method_name)
 
-        <a class="method-permalink" href="#____collect_files%28____files%29-instance-method">#</a>
+        <a class="method-permalink" href="#after_send%28method_name%29-macro">#</a>
       </div>
       
         <div class="doc">
           
-            <div class="doc-inherited">
-              Description copied from class Teeplate::FileTree
-            </div>
-          
-          <p>:nodoc:</p>
+          <p>Runs the given method after the adapter calls <code>deliver_now</code>.
+Passes in the return value of the adapter's <code>deliver_now</code> method.</p>
+<pre><code class="language-crystal">after_send <span class="n">:mark_email_as_sent</span>
+
+<span class="k">private</span> <span class="k">def</span> <span class="m">mark_email_as_sent</span>(response)
+  <span class="c"># ...</span>
+<span class="k">end</span></code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/callbacks.cr#L46" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="__ecr0(____io)-instance-method">
+    <div class="entry-detail" id="after_send(&amp;block)-macro">
       <div class="signature">
         
-        def <strong>__ecr0</strong>(____io)
+        macro <strong>after_send</strong>(&block)
 
-        <a class="method-permalink" href="#__ecr0%28____io%29-instance-method">#</a>
+        <a class="method-permalink" href="#after_send%28%26block%29-macro">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Runs the block after the adapter calls <code>deliver_now</code>, and passes the
+return value of the adapter's <code>deliver_now</code> method to the block.</p>
+<pre><code class="language-crystal">after_send <span class="k">do</span> <span class="o">|</span>response<span class="o">|</span>
+  <span class="c"># ...</span>
+<span class="k">end</span></code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/callbacks.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="__ecr2(____io)-instance-method">
+    <div class="entry-detail" id="before_send(method_name)-macro">
       <div class="signature">
         
-        def <strong>__ecr2</strong>(____io)
+        macro <strong>before_send</strong>(method_name)
 
-        <a class="method-permalink" href="#__ecr2%28____io%29-instance-method">#</a>
+        <a class="method-permalink" href="#before_send%28method_name%29-macro">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Runs the given method before the adapter calls <code>deliver_now</code></p>
+<pre><code class="language-crystal">before_send <span class="n">:attach_metadata</span>
+
+<span class="k">private</span> <span class="k">def</span> <span class="m">attach_metadata</span>
+  <span class="c"># ...</span>
+<span class="k">end</span></code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/callbacks.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="__ecr4(____io)-instance-method">
+    <div class="entry-detail" id="before_send-macro">
       <div class="signature">
         
-        def <strong>__ecr4</strong>(____io)
+        macro <strong>before_send</strong>
 
-        <a class="method-permalink" href="#__ecr4%28____io%29-instance-method">#</a>
+        <a class="method-permalink" href="#before_send-macro">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>Runs the block before the adapter calls <code>deliver_now</code></p>
+<pre><code class="language-crystal">before_send <span class="k">do</span>
+  <span class="c"># ...</span>
+<span class="k">end</span></code></pre>
+        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/tasks/gen/email.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/d7d9b3004098c850d6b9d3d310f6b2d72a8a5b1a/src/carbon/callbacks.cr#L24" target="_blank">View source</a>]
         
       </div>
     </div>
   
-
-
 
 
 </div>
