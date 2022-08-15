@@ -1,6 +1,7 @@
 require "ecr"
 
 abstract class Carbon::Email
+  include Carbon::Callbacks
   alias Recipients = Carbon::Emailable | Array(Carbon::Emailable)
 
   abstract def subject : String
@@ -8,6 +9,10 @@ abstract class Carbon::Email
   abstract def to : Array(Carbon::Address)
 
   def_equals subject, from, to, cc, bcc, headers, text_body, html_body
+
+  # Set this value to `false` to prevent the email from
+  # being delivered
+  property? deliverable : Bool = true
 
   def cc
     [] of Carbon::Address
@@ -24,6 +29,10 @@ abstract class Carbon::Email
   def html_body; end
 
   def html_layout(content_io : IO); end
+
+  def before_send; end
+
+  def after_send(result); end
 
   getter headers
 
@@ -122,7 +131,12 @@ abstract class Carbon::Email
   end
 
   def deliver
-    settings.adapter.deliver_now(self)
+    before_send
+
+    if deliverable?
+      response = settings.adapter.deliver_now(self)
+      after_send(response)
+    end
   end
 
   def deliver_later

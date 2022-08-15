@@ -78,6 +78,12 @@ private class EmailWithLayout < BareMinimumEmail
   layout custom_layout
 end
 
+private class UndeliverableEmail < Carbon::Email
+  subject "My great subject"
+  from Carbon::Address.new("from@example.com")
+  to Carbon::Address.new("to@example.com")
+end
+
 describe Carbon::Email do
   it "can build a bare minimum email" do
     email = BareMinimumEmail.new
@@ -145,5 +151,13 @@ describe Carbon::Email do
     email = EmailWithLayout.new
     email.html_body.should contain "Email Layout"
     email.html_body.should contain "Email body"
+  end
+
+  context "deliverable?" do
+    it "is not delivery it is digiorno" do
+      email = UndeliverableEmail.new
+      email.deliverable = false
+      email.deliverable?.should eq(false)
+    end
   end
 end
