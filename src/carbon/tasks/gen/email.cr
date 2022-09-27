@@ -31,14 +31,18 @@ class Gen::Email < LuckyTask::Task
   end
 
   def call
-    template = Carbon::EmailTemplate.new(filename, email_name)
+    template = Carbon::EmailTemplate.new(filename, normalized_email_name)
     template.render(output_path.to_s)
 
     display_success_messages
   end
 
+  private def normalized_email_name : String
+    email_name.gsub(/email$/i, "")
+  end
+
   private def filename : String
-    Wordsmith::Inflector.underscore(email_name)
+    Wordsmith::Inflector.underscore(normalized_email_name)
   end
 
   private def output_path : Path
