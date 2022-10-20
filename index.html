@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.4.1">
+<meta name="generator" content="Crystal Docs 1.5.0">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="carbon">
 
@@ -192,6 +192,7 @@
 <li><code>Carbon::SmtpAdapter</code> - See <a href="https://github.com/oneiros/carbon_smtp_adapter">oneiros/carbon_smtp_adapter</a>.</li>
 <li><code>Carbon::SparkPostAdapter</code> - See <a href="https://github.com/Swiss-Crystal/carbon_sparkpost_adapter">Swiss-Crystal/carbon_sparkpost_adapter</a>.</li>
 <li><code>Carbon::PostmarkAdapter</code> - See <a href="https://github.com/makisu/carbon_postmark_adapter">makisu/carbon_postmark_adapter</a>.</li>
+<li><code>Carbon::MailersendAdapter</code> - See <a href="https://github.com/balakhorvathnorbert/carbon_mailersend_adapter">balakhorvathnorbert/carbon_mailersend_adapter</a>.</li>
 </ul>
 <h2><a id="usage" class="anchor" href="#usage">
   <svg class="octicon-link" aria-hidden="true">
@@ -208,7 +209,7 @@
 <span class="c"># You can setup defaults in this class</span>
 <span class="k">abstract</span> <span class="k">class</span> <span class="t">BaseEmail</span> <span class="o">&lt;</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">Email</span>
   <span class="c"># For example, set up a default &#39;from&#39; address</span>
-  from <span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.<span class="k">new</span>(<span class="s">&quot;My App Name&quot;</span>, <span class="s">&quot;support@myapp.com&quot;</span>)
+  from <span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.new(<span class="s">&quot;My App Name&quot;</span>, <span class="s">&quot;support@myapp.com&quot;</span>)
   <span class="c"># Use a string if you just need the email address</span>
   from <span class="s">&quot;support@myapp.com&quot;</span>
 <span class="k">end</span></code></pre>
@@ -218,7 +219,7 @@
   </svg>
 </a>Configure the mailer class</h3>
 <pre><code class="language-crystal"><span class="t">BaseEmail</span>.configure <span class="k">do</span> <span class="o">|</span>settings<span class="o">|</span>
-  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.<span class="k">new</span>(print_emails: <span class="n">true</span>)
+  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.new(print_emails: <span class="n">true</span>)
 <span class="k">end</span></code></pre>
 <h3><a id="create-a-class-for-your-email" class="anchor" href="#create-a-class-for-your-email">
   <svg class="octicon-link" aria-hidden="true">
@@ -251,9 +252,9 @@
 templates would go in <code>src/emails/templates/welcome_email/text|html.ecr</code>.</p>
 <pre><code class="language-crystal"><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/text.ecr</span>
 <span class="c"># Templates have access to instance variables and methods in the email.</span>
-<span class="t">Welcome</span>, <span class="o">&lt;</span>%= @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span></code></pre>
-<pre><code class="language-crystal"># in &lt;folder_of_email_class&gt;/templates/welcome_email/html.ecr
-&lt;h1&gt;Welcome, &lt;%= @name %&gt;!&lt;/h1&gt;</code></pre>
+<span class="t">Welcome</span>, <span class="o">&lt;</span><span class="o">%=</span> @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span></code></pre>
+<pre><code class="language-crystal"><span class="c"># in &lt;folder_of_email_class&gt;/templates/welcome_email/html.ecr</span>
+<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Welcome</span>, <span class="o">&lt;</span><span class="o">%=</span> @name <span class="o">%</span><span class="o">&gt;</span><span class="o">!</span><span class="o">&lt;</span><span class="o">/</span>h1<span class="o">&gt;</span></code></pre>
 <p>For more information on what you can do with Embedded Crystal (ECR), see <a href="https://crystal-lang.org/api/latest/ECR.html">the official Crystal documentation</a>.</p>
 <h3><a id="template-layouts" class="anchor" href="#template-layouts">
   <svg class="octicon-link" aria-hidden="true">
@@ -272,21 +273,21 @@ If you'd like to have the same layout on each, you can create a layout template 
 <span class="k">end</span></code></pre>
 <pre><code class="language-crystal"><span class="c"># in src/emails/templates/application_layout/layout.ecr</span>
 
-<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Our</span> <span class="t">Email</span><span class="o">&lt;</span><span class="s">/h1&gt;
+<span class="o">&lt;</span>h1<span class="o">&gt;</span><span class="t">Our</span> <span class="t">Email</span><span class="o">&lt;</span><span class="o">/</span>h1<span class="o">&gt;</span>
 
-&lt;%= content %&gt;
+<span class="o">&lt;</span><span class="o">%=</span> content <span class="o">%</span><span class="o">&gt;</span>
 
-&lt;div&gt;footer&lt;/</span>div<span class="o">&gt;</span></code></pre>
+<span class="o">&lt;</span>div<span class="o">&gt;</span>footer<span class="o">&lt;</span><span class="o">/</span>div<span class="o">&gt;</span></code></pre>
 <h3><a id="deliver-the-email" class="anchor" href="#deliver-the-email">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>Deliver the email</h3>
 <pre><code class="language-crystal"><span class="c"># Send the email right away!</span>
-<span class="t">WelcomeEmail</span>.<span class="k">new</span>(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver
+<span class="t">WelcomeEmail</span>.new(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver
 
 <span class="c"># Send the email in the background using `spawn`</span>
-<span class="t">WelcomeEmail</span>.<span class="k">new</span>(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver_later</code></pre>
+<span class="t">WelcomeEmail</span>.new(<span class="s">&quot;Kate&quot;</span>, <span class="s">&quot;kate@example.com&quot;</span>).deliver_later</code></pre>
 <h3><a id="delay-email-delivery" class="anchor" href="#delay-email-delivery">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
@@ -313,7 +314,7 @@ that inherits from <code><a href="Carbon/DeliverLaterStrategy.html">Carbon::Deli
 
 <span class="c"># configure to use your new delayed strategy</span>
 <span class="t">BaseEmail</span>.configure <span class="k">do</span> <span class="o">|</span>settings<span class="o">|</span>
-  settings.deliver_later_strategy <span class="o">=</span> <span class="t">SendEmailInJobStrategy</span>.<span class="k">new</span>
+  settings.deliver_later_strategy <span class="o">=</span> <span class="t">SendEmailInJobStrategy</span>.new
 <span class="k">end</span></code></pre>
 <h2><a id="testing" class="anchor" href="#testing">
   <svg class="octicon-link" aria-hidden="true">
@@ -328,7 +329,7 @@ that inherits from <code><a href="Carbon/DeliverLaterStrategy.html">Carbon::Deli
 <pre><code class="language-crystal"><span class="c"># In spec/spec_helper.cr or wherever you configure your code</span>
 <span class="t">BaseEmail</span>.configure <span class="k">do</span>
   <span class="c"># This adapter will capture all emails in memory</span>
-  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.<span class="k">new</span>
+  settings.adapter <span class="o">=</span> <span class="t">Carbon</span><span class="t">::</span><span class="t">DevAdapter</span>.new
 <span class="k">end</span></code></pre>
 <h3><a id="reset-emails-before-each-spec-and-include-expectations" class="anchor" href="#reset-emails-before-each-spec-and-include-expectations">
   <svg class="octicon-link" aria-hidden="true">
@@ -356,20 +357,20 @@ that inherits from <code><a href="Carbon/DeliverLaterStrategy.html">Carbon::Deli
 
   <span class="k">def</span> <span class="m">run</span>
     sign_user_up
-    <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: @name, email_address: @email_address).deliver
+    <span class="t">WelcomeEmail</span>.new(name: @name, email_address: @email_address).deliver
   <span class="k">end</span>
 <span class="k">end</span>
 
 it <span class="s">&quot;sends an email after the user signs up&quot;</span> <span class="k">do</span>
-  <span class="t">SignUpUser</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
+  <span class="t">SignUpUser</span>.new(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
 
   <span class="c"># Test that this email was sent</span>
-  <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).should be_delivered
+  <span class="t">WelcomeEmail</span>.new(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).should be_delivered
 <span class="k">end</span>
 
 <span class="c"># or we can just check that some emails were sent</span>
 it <span class="s">&quot;sends some emails&quot;</span> <span class="k">do</span>
-  <span class="t">SignUpUser</span>.<span class="k">new</span>(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
+  <span class="t">SignUpUser</span>.new(name: <span class="s">&quot;Emily&quot;</span>, email_address: <span class="s">&quot;em@gmail.com&quot;</span>).run
 
   <span class="t">Carbon</span>.should have_delivered_emails
 <span class="k">end</span></code></pre>
@@ -380,11 +381,11 @@ it <span class="s">&quot;sends some emails&quot;</span> <span class="k">do</span
 </a>Unit testing</h3>
 <p>Unit testing is simple. Instantiate your email and test the fields you care about.</p>
 <pre><code class="language-crystal">it <span class="s">&quot;builds a nice welcome email&quot;</span> <span class="k">do</span>
-  email <span class="o">=</span> <span class="t">WelcomeEmail</span>.<span class="k">new</span>(name: <span class="s">&quot;David&quot;</span>, email_address: <span class="s">&quot;david@gmail.com&quot;</span>)
+  email <span class="o">=</span> <span class="t">WelcomeEmail</span>.new(name: <span class="s">&quot;David&quot;</span>, email_address: <span class="s">&quot;david@gmail.com&quot;</span>)
   <span class="c"># Note that recipients are converted to an array of Carbon::Address</span>
   <span class="c"># So if you use a string value for the `to` field, you&#39;ll get an array of</span>
   <span class="c"># Carbon::Address instead.</span>
-  email.to.should eq [<span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.<span class="k">new</span>(<span class="s">&quot;david@gmail.com&quot;</span>)]
+  email.to.should eq [<span class="t">Carbon</span><span class="t">::</span><span class="t">Address</span>.new(<span class="s">&quot;david@gmail.com&quot;</span>)]
   email.text_body.should contain <span class="s">&quot;Welcome&quot;</span>
   email.html_body.should contain <span class="s">&quot;Welcome&quot;</span>
 <span class="k">end</span></code></pre>
