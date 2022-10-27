@@ -19,10 +19,10 @@ dependencies:
 ## Adapters
 
 - `Carbon::SendGridAdapter`- See [luckyframework/carbon_sendgrid_adapter](https://github.com/luckyframework/carbon_sendgrid_adapter).
+- `Carbon::SmtpAdapter` - See [luckyframework/carbon_smtp_adapter](https://github.com/luckyframework/carbon_smtp_adapter.
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
 - `Carbon::MailgunAdapter` - See [atnos/carbon_mailgun_adapter](https://github.com/atnos/carbon_mailgun_adapter).
-- `Carbon::SmtpAdapter` - See [oneiros/carbon_smtp_adapter](https://github.com/oneiros/carbon_smtp_adapter).
 - `Carbon::SparkPostAdapter` - See [Swiss-Crystal/carbon_sparkpost_adapter](https://github.com/Swiss-Crystal/carbon_sparkpost_adapter).
 - `Carbon::PostmarkAdapter` - See [makisu/carbon_postmark_adapter](https://github.com/makisu/carbon_postmark_adapter).
 - `Carbon::MailersendAdapter` - See [balakhorvathnorbert/carbon_mailersend_adapter](https://github.com/balakhorvathnorbert/carbon_mailersend_adapter).
