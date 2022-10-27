@@ -19,7 +19,7 @@ dependencies:
 ## Adapters
 
 - `Carbon::SendGridAdapter`- See [luckyframework/carbon_sendgrid_adapter](https://github.com/luckyframework/carbon_sendgrid_adapter).
-- `Carbon::SmtpAdapter` - See [luckyframework/carbon_smtp_adapter](https://github.com/luckyframework/carbon_smtp_adapter.
+- `Carbon::SmtpAdapter` - See [luckyframework/carbon_smtp_adapter](https://github.com/luckyframework/carbon_smtp_adapter).
 - `Carbon::AwsSesAdapter` - See [keizo3/carbon_aws_ses_adapter](https://github.com/keizo3/carbon_aws_ses_adapter).
 - `Carbon::SendInBlueAdapter` - See [atnos/carbon_send_in_blue_adapter](https://github.com/atnos/carbon_send_in_blue_adapter).
 - `Carbon::MailgunAdapter` - See [atnos/carbon_mailgun_adapter](https://github.com/atnos/carbon_mailgun_adapter).
