@@ -19,9 +19,8 @@ dependencies:
   lucky_task:
     github: luckyframework/lucky_task
     version: ~> 0.1.1
-  teeplate:
-    github: luckyframework/teeplate
-    version: ~> 0.8.5
+  lucky_template:
+    github: mdwagner/lucky_template
   wordsmith:
     github: luckyframework/wordsmith
     version: ~> 0.4.0
