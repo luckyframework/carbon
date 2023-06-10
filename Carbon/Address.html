@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Crystal Docs 1.5.0">
+<meta name="generator" content="Crystal Docs 1.7.3">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="carbon">
 
@@ -212,7 +212,7 @@
   </h2>
   
     
-      <a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L3" target="_blank">
+      <a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L3" target="_blank">
         carbon/address.cr
       </a>
     
@@ -291,7 +291,7 @@
       <li class="entry-summary">
         <a href="#to_s%3AString-instance-method" class="signature"><strong>#to_s</strong> : String</a>
         
-          <div class="summary"><p>Returns a string representation of this object.</p></div>
+          <div class="summary"><p>Returns a nicely readable and concise string representation of this object, typically intended for users.</p></div>
         
       </li>
     
@@ -370,7 +370,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -386,7 +386,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L12" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -425,7 +425,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -441,7 +441,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -457,7 +457,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L18" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L18" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -473,7 +473,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -505,7 +505,7 @@ which includes its class name and its object address.</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L22" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L22" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -524,16 +524,17 @@ which includes its class name and its object address.</p>
               Description copied from class Object
             </div>
           
-          <p>Returns a string representation of this object.</p>
-<p>Descendants must usually <strong>not</strong> override this method. Instead,
-they must override <code><a href="../Carbon/Address.html#to_s%28io%3AIO%29-instance-method">#to_s(io)</a></code>, which must append to the given
-IO object.</p>
+          <p>Returns a nicely readable and concise string representation of this object,
+typically intended for users.</p>
+<p>This method should usually <strong>not</strong> be overridden. It delegates to
+<code><a href="../Carbon/Address.html#to_s%28io%3AIO%29-instance-method">#to_s(IO)</a></code> which can be overridden for custom implementations.</p>
+<p>Also see <code>#inspect</code>.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/e06c526c06c164b459b689a25e9331a1a8a2b498/src/carbon/address.cr#L26" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b3e27bdc18ca0f9551235e9f4e5d3de7baf1b532/src/carbon/address.cr#L26" target="_blank">View source</a>]
         
       </div>
     </div>
