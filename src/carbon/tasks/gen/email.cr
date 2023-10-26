@@ -32,15 +32,22 @@ end
 
 class Gen::Email < LuckyTask::Task
   include LuckyTask::TextHelpers
+
   summary "Generate a new Email"
-  help_message <<-TEXT
-  Generate a new email with html and text formats.
-  The email name must be CamelCase. No other options are available.
-  Examples:
-    lucky gen.email WelcomeUser
-    lucky gen.email SubscriptionRenewed
-    lucky gen.email ResetPassword
-  TEXT
+
+  {% begin %}
+    {% lt_0_3_0 = compare_versions(LuckyTask::VERSION, "0.3.0") < 0 %}
+    {% if lt_0_3_0 %}def help_message{% else %}help_message({% end %}
+      <<-TEXT
+      Generate a new email with html and text formats.
+      The email name must be CamelCase. No other options are available.
+      Examples:
+        lucky gen.email WelcomeUser
+        lucky gen.email SubscriptionRenewed
+        lucky gen.email ResetPassword
+      TEXT
+    {% if lt_0_3_0 %}end{% else %}){% end %}
+  {% end %}
 
   positional_arg :email_name, "The name of the email", format: /^[A-Z]/
 

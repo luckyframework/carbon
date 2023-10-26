@@ -1,10 +1,10 @@
 name: carbon
-version: 0.4.1
+version: 0.4.2
 
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: ">= 1.4.0"
+crystal: ~> 1.4
 
 license: MIT
 
@@ -15,16 +15,16 @@ targets:
 dependencies:
   habitat:
     github: luckyframework/habitat
-    version: ~> 0.4.8
+    version: ">= 0.4.7, < 0.5"
   lucky_task:
     github: luckyframework/lucky_task
-    version: ~> 0.3.0
+    version: ">= 0.1.1, < 0.4"
   lucky_template:
     github: luckyframework/lucky_template
-    version: ~> 0.2.0
+    version: ">= 0.2.0, < 0.3"
   wordsmith:
     github: luckyframework/wordsmith
-    version: ~> 0.4.0
+    version: ">= 0.4.0, < 0.5"
 
 development_dependencies:
   lucky_env:
