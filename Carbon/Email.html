@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Crystal Docs 1.9.2">
+<meta name="generator" content="Crystal Docs 1.10.1">
 <meta name="crystal_docs.project_version" content="main">
 <meta name="crystal_docs.project_name" content="carbon">
 
@@ -72,6 +72,21 @@
       
     </li>
   
+  <li class=" " data-id="carbon/Carbon/AttachFile" data-name="carbon::attachfile">
+      <a href="../Carbon/AttachFile.html">AttachFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/AttachIO" data-name="carbon::attachio">
+      <a href="../Carbon/AttachIO.html">AttachIO</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/Attachment" data-name="carbon::attachment">
+      <a href="../Carbon/Attachment.html">Attachment</a>
+      
+    </li>
+  
   <li class=" " data-id="carbon/Carbon/Callbacks" data-name="carbon::callbacks">
       <a href="../Carbon/Callbacks.html">Callbacks</a>
       
@@ -129,6 +144,16 @@
   
 </ul>
 
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/ResourceFile" data-name="carbon::resourcefile">
+      <a href="../Carbon/ResourceFile.html">ResourceFile</a>
+      
+    </li>
+  
+  <li class=" " data-id="carbon/Carbon/ResourceIO" data-name="carbon::resourceio">
+      <a href="../Carbon/ResourceIO.html">ResourceIO</a>
       
     </li>
   
@@ -218,7 +243,7 @@
   </h2>
   
     
-      <a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L3" target="_blank">
+      <a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L3" target="_blank">
         carbon/email.cr
       </a>
     
@@ -230,6 +255,70 @@
 
 
 
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#attachment%28value%29-macro" class="signature"><strong>attachment</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#bcc%28value%29-macro" class="signature"><strong>bcc</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cc%28value%29-macro" class="signature"><strong>cc</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#configure-macro" class="signature"><strong>configure</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from%28value%29-macro" class="signature"><strong>from</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#header%28key%2Cvalue%29-macro" class="signature"><strong>header</strong>(key, value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_or_method%28value%29-macro" class="signature"><strong>id_or_method</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reply_to%28address%29-macro" class="signature"><strong>reply_to</strong>(address)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#subject%28value%29-macro" class="signature"><strong>subject</strong>(value)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to%28value%29-macro" class="signature"><strong>to</strong>(value)</a>
+        
+      </li>
+    
+  </ul>
 
 
 
@@ -252,6 +341,11 @@
     
       <li class="entry-summary">
         <a href="#after_send%28result%29-instance-method" class="signature"><strong>#after_send</strong>(result)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attachments%3AArray%28%7Bfile_path%3AString%2Ccid%3AString%2Cfile_name%3AString%3F%2Cmime_type%3AString%3F%7D%7C%7Bfile_path%3AString%2Cfile_name%3AString%3F%2Cmime_type%3AString%3F%7D%7C%7Bio%3AIO%2Ccid%3AString%2Cfile_name%3AString%2Cmime_type%3AString%3F%7D%7C%7Bio%3AIO%2Cfile_name%3AString%2Cmime_type%3AString%3F%7D%29-instance-method" class="signature"><strong>#attachments</strong> : Array({file_path: String, cid: String, file_name: String?, mime_type: String?} | {file_path: String, file_name: String?, mime_type: String?} | {io: IO, cid: String, file_name: String, mime_type: String?} | {io: IO, file_name: String, mime_type: String?})</a>
         
       </li>
     
@@ -338,65 +432,6 @@
 
 
 
-  <h2>
-    <a id="macro-summary" class="anchor" href="#macro-summary">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Macro Summary
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#bcc%28value%29-macro" class="signature"><strong>bcc</strong>(value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#cc%28value%29-macro" class="signature"><strong>cc</strong>(value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#configure-macro" class="signature"><strong>configure</strong></a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#from%28value%29-macro" class="signature"><strong>from</strong>(value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#header%28key%2Cvalue%29-macro" class="signature"><strong>header</strong>(key, value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#id_or_method%28value%29-macro" class="signature"><strong>id_or_method</strong>(value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#reply_to%28address%29-macro" class="signature"><strong>reply_to</strong>(address)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#subject%28value%29-macro" class="signature"><strong>subject</strong>(value)</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#to%28value%29-macro" class="signature"><strong>to</strong>(value)</a>
-        
-      </li>
-    
-  </ul>
-
-
-
 <div class="methods-inherited">
   
     
@@ -408,6 +443,23 @@
     
 
 
+    
+
+  <h3>Macros inherited from module <code><a href="../Carbon/Callbacks.html">Carbon::Callbacks</a></code></h3>
+  
+  
+    <a href="../Carbon/Callbacks.html#after_send%28method_name%29-macro" class="tooltip">
+      <span>after_send(method_name)<br/>after_send(&block)</span>
+    after_send</a>, 
+    
+  
+    <a href="../Carbon/Callbacks.html#before_send%28method_name%29-macro" class="tooltip">
+      <span>before_send(method_name)<br/>before_send</span>
+    before_send</a>
+    
+  
+
+
   
     
 
@@ -418,7 +470,13 @@
     
 
 
+    
+
+
   
+    
+
+
     
 
 
@@ -433,6 +491,178 @@
 
 
 
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="attachment(value)-macro">
+      <div class="signature">
+        
+        macro <strong>attachment</strong>(value)
+
+        <a class="method-permalink" href="#attachment%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L97" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="bcc(value)-macro">
+      <div class="signature">
+        
+        macro <strong>bcc</strong>(value)
+
+        <a class="method-permalink" href="#bcc%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cc(value)-macro">
+      <div class="signature">
+        
+        macro <strong>cc</strong>(value)
+
+        <a class="method-permalink" href="#cc%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="configure-macro">
+      <div class="signature">
+        
+        macro <strong>configure</strong>
+
+        <a class="method-permalink" href="#configure-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from(value)-macro">
+      <div class="signature">
+        
+        macro <strong>from</strong>(value)
+
+        <a class="method-permalink" href="#from%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L82" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="header(key,value)-macro">
+      <div class="signature">
+        
+        macro <strong>header</strong>(key, value)
+
+        <a class="method-permalink" href="#header%28key%2Cvalue%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L72" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_or_method(value)-macro">
+      <div class="signature">
+        
+        macro <strong>id_or_method</strong>(value)
+
+        <a class="method-permalink" href="#id_or_method%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L114" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reply_to(address)-macro">
+      <div class="signature">
+        
+        macro <strong>reply_to</strong>(address)
+
+        <a class="method-permalink" href="#reply_to%28address%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L68" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="subject(value)-macro">
+      <div class="signature">
+        
+        macro <strong>subject</strong>(value)
+
+        <a class="method-permalink" href="#subject%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L88" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to(value)-macro">
+      <div class="signature">
+        
+        macro <strong>to</strong>(value)
+
+        <a class="method-permalink" href="#to%28value%29-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
 
 
 
@@ -465,7 +695,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -481,7 +711,23 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L35" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L35" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attachments:Array({file_path:String,cid:String,file_name:String?,mime_type:String?}|{file_path:String,file_name:String?,mime_type:String?}|{io:IO,cid:String,file_name:String,mime_type:String?}|{io:IO,file_name:String,mime_type:String?})-instance-method">
+      <div class="signature">
+        
+        def <strong>attachments</strong> : Array({file_path: <a href="../String.html">String</a>, cid: <a href="../String.html">String</a>, file_name: <a href="../String.html">String</a>?, mime_type: <a href="../String.html">String</a>?} | {file_path: <a href="../String.html">String</a>, file_name: <a href="../String.html">String</a>?, mime_type: <a href="../String.html">String</a>?} | {io: IO, cid: <a href="../String.html">String</a>, file_name: <a href="../String.html">String</a>, mime_type: <a href="../String.html">String</a>?} | {io: IO, file_name: <a href="../String.html">String</a>, mime_type: <a href="../String.html">String</a>?})
+
+        <a class="method-permalink" href="#attachments%3AArray%28%7Bfile_path%3AString%2Ccid%3AString%2Cfile_name%3AString%3F%2Cmime_type%3AString%3F%7D%7C%7Bfile_path%3AString%2Cfile_name%3AString%3F%2Cmime_type%3AString%3F%7D%7C%7Bio%3AIO%2Ccid%3AString%2Cfile_name%3AString%2Cmime_type%3AString%3F%7D%7C%7Bio%3AIO%2Cfile_name%3AString%2Cmime_type%3AString%3F%7D%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L95" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -497,7 +743,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L21" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L21" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -513,7 +759,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L33" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L33" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -529,7 +775,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L17" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -545,7 +791,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L133" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L145" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -561,7 +807,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L142" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L154" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -583,7 +829,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -605,7 +851,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L15" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L15" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -621,7 +867,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L8" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L8" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -637,7 +883,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L37" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L37" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -653,7 +899,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L29" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L29" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -669,7 +915,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L31" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L31" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -685,7 +931,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L7" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L7" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -701,7 +947,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -717,7 +963,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L27" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L27" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -733,163 +979,7 @@ being delivered</p>
       <br/>
       <div>
         
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L9" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-
-
-
-  <h2>
-    <a id="macro-detail" class="anchor" href="#macro-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Macro Detail
-  </h2>
-  
-    <div class="entry-detail" id="bcc(value)-macro">
-      <div class="signature">
-        
-        macro <strong>bcc</strong>(value)
-
-        <a class="method-permalink" href="#bcc%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L94" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="cc(value)-macro">
-      <div class="signature">
-        
-        macro <strong>cc</strong>(value)
-
-        <a class="method-permalink" href="#cc%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L94" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="configure-macro">
-      <div class="signature">
-        
-        macro <strong>configure</strong>
-
-        <a class="method-permalink" href="#configure-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L129" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="from(value)-macro">
-      <div class="signature">
-        
-        macro <strong>from</strong>(value)
-
-        <a class="method-permalink" href="#from%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L82" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="header(key,value)-macro">
-      <div class="signature">
-        
-        macro <strong>header</strong>(key, value)
-
-        <a class="method-permalink" href="#header%28key%2Cvalue%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L72" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="id_or_method(value)-macro">
-      <div class="signature">
-        
-        macro <strong>id_or_method</strong>(value)
-
-        <a class="method-permalink" href="#id_or_method%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L102" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="reply_to(address)-macro">
-      <div class="signature">
-        
-        macro <strong>reply_to</strong>(address)
-
-        <a class="method-permalink" href="#reply_to%28address%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L68" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="subject(value)-macro">
-      <div class="signature">
-        
-        macro <strong>subject</strong>(value)
-
-        <a class="method-permalink" href="#subject%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L88" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="to(value)-macro">
-      <div class="signature">
-        
-        macro <strong>to</strong>(value)
-
-        <a class="method-permalink" href="#to%28value%29-macro">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/luckyframework/carbon/blob/b3658e335a35408b61be3dfe4b6fbb83856faa61/src/carbon/email.cr#L94" target="_blank">View source</a>]
+          [<a href="https://github.com/luckyframework/carbon/blob/b47843ba4079538b1fdfef7bd2acacfe736cb08e/src/carbon/email.cr#L9" target="_blank">View source</a>]
         
       </div>
     </div>
