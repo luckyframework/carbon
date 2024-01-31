@@ -8,7 +8,7 @@ abstract class Carbon::Email
   abstract def from : Carbon::Address
   abstract def to : Array(Carbon::Address)
 
-  def_equals subject, from, to, cc, bcc, headers, text_body, html_body
+  def_equals subject, from, to, cc, bcc, headers, text_body, html_body, attachments
 
   # Set this value to `false` to prevent the email from
   # being delivered
@@ -88,6 +88,18 @@ abstract class Carbon::Email
   macro subject(value)
     def subject : String
       id_or_method({{ value }})
+    end
+  end
+
+  @attachments = [] of Carbon::Attachment
+  getter attachments
+
+  macro attachment(value)
+    def attachments : Array(Carbon::Attachment)
+      {% if @type.methods.map(&.name).includes?("attachments".id) %}
+        previous_def
+      {% end %}
+      @attachments << {{value}}
     end
   end
 
