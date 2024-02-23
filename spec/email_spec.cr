@@ -91,6 +91,9 @@ private class SerializableEmail < BareMinimumEmail
   MEMORY = IO::Memory.new
 
   attachment({io: MEMORY, file_name: "file.txt", mime_type: "text/plain"})
+
+  # This is to check that an attachment cannot be added more than once
+  attachment({file_name: "file.txt", mime_type: "text/plain", io: MEMORY})
 end
 
 describe Carbon::Email do
@@ -164,7 +167,9 @@ describe Carbon::Email do
 
   it "can be serialized" do
     email = SerializableEmail.from_json("{}")
-    email.attachments.first?.try(&.[:io]?).should eq(SerializableEmail::MEMORY)
+
+    email.attachments.size.should eq(1)
+    email.attachments.first[:io]?.should eq(SerializableEmail::MEMORY)
   end
 
   context "deliverable?" do
