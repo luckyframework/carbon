@@ -8,7 +8,7 @@ abstract class Carbon::Email
   abstract def from : Carbon::Address
   abstract def to : Array(Carbon::Address)
 
-  def_equals subject, from, to, cc, bcc, headers, text_body, html_body
+  def_equals subject, from, to, cc, bcc, headers, text_body, html_body, attachments
 
   # Set this value to `false` to prevent the email from
   # being delivered
