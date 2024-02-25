@@ -1,3 +1,4 @@
+require "json"
 require "./spec_helper"
 
 private class User
@@ -84,6 +85,17 @@ private class UndeliverableEmail < Carbon::Email
   to Carbon::Address.new("to@example.com")
 end
 
+private class SerializableEmail < BareMinimumEmail
+  include JSON::Serializable
+
+  MEMORY = IO::Memory.new
+
+  attachment({io: MEMORY, file_name: "file.txt", mime_type: "text/plain"})
+
+  # This is to check that an attachment cannot be added more than once
+  attachment({file_name: "file.txt", mime_type: "text/plain", io: MEMORY})
+end
+
 describe Carbon::Email do
   it "can build a bare minimum email" do
     email = BareMinimumEmail.new
@@ -151,6 +163,13 @@ describe Carbon::Email do
     email = EmailWithLayout.new
     email.html_body.should contain "Email Layout"
     email.html_body.should contain "Email body"
+  end
+
+  it "can be serialized" do
+    email = SerializableEmail.from_json("{}")
+
+    email.attachments.size.should eq(1)
+    email.attachments.first[:io]?.should eq(SerializableEmail::MEMORY)
   end
 
   context "deliverable?" do

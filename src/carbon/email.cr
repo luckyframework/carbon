@@ -91,15 +91,17 @@ abstract class Carbon::Email
     end
   end
 
-  @attachments = [] of Carbon::Attachment
-  getter attachments
+  def attachments
+    [] of Carbon::Attachment
+  end
 
   macro attachment(value)
     def attachments : Array(Carbon::Attachment)
-      {% if @type.methods.map(&.name).includes?("attachments".id) %}
-        previous_def
+      {% if @type.methods.map(&.name).includes?(:attachments.id) %}
+        previous_def | [{{ value }}]
+      {% else %}
+        super | [{{ value }}]
       {% end %}
-      @attachments << {{value}}
     end
   end
 
