@@ -13,16 +13,18 @@ class Carbon::EmailTemplate
 
   def template_folder
     LuckyTemplate.create_folder do |top_dir|
-      top_dir.add_folder(Path["src/emails/templates"]) do |templates_dir|
-        templates_dir.add_file("#{@email_filename}_email.cr") do |io|
+      top_dir.add_folder(Path["src/emails"]) do |email_dir|
+        email_dir.add_file("#{@email_filename}_email.cr") do |io|
           ECR.embed("#{__DIR__}/templates/email.cr.ecr", io)
         end
-        templates_dir.add_folder("#{@email_filename}_email") do |email_templates_dir|
-          email_templates_dir.add_file("html.ecr") do |io|
-            ECR.embed("#{__DIR__}/templates/html.ecr.ecr", io)
-          end
-          email_templates_dir.add_file("text.ecr") do |io|
-            ECR.embed("#{__DIR__}/templates/text.ecr.ecr", io)
+        email_dir.add_folder(Path["templates"]) do |templates_dir|
+          templates_dir.add_folder("#{@email_filename}_email") do |email_templates_dir|
+            email_templates_dir.add_file("html.ecr") do |io|
+              ECR.embed("#{__DIR__}/templates/html.ecr.ecr", io)
+            end
+            email_templates_dir.add_file("text.ecr") do |io|
+              ECR.embed("#{__DIR__}/templates/text.ecr.ecr", io)
+            end
           end
         end
       end
