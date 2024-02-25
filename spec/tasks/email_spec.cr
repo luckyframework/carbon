@@ -9,6 +9,7 @@ describe Gen::Email do
       generator = Gen::Email.new
       generator.output = IO::Memory.new
       generator.print_help_or_call ["PasswordReset"]
+      generator.output.to_s.should contain("src/emails/password_reset_email.cr")
       generator.output.to_s.should contain("src/emails/templates/password_reset_email/html.ecr")
 
       folder = generator.email_template.template_folder
@@ -21,6 +22,7 @@ describe Gen::Email do
       generator = Gen::Email.new
       generator.output = IO::Memory.new
       generator.print_help_or_call ["WelcomeUserEmail"]
+      generator.output.to_s.should contain("src/emails/welcome_user_email.cr")
       generator.output.to_s.should contain("src/emails/templates/welcome_user_email/html.ecr")
 
       folder = generator.email_template.template_folder
