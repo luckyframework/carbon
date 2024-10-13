@@ -14,7 +14,7 @@ jobs:
     continue-on-error: false
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
       - name: Install dependencies
@@ -28,15 +28,12 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest]
-        crystal_version: [latest]
-        include:
-          - os: ubuntu-latest
-            crystal_version: 1.4.0
+        crystal_version: [1.10.0, latest]
     runs-on: ${{ matrix.os }}
     continue-on-error: false
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Crystal
         uses: crystal-lang/install-crystal@v1
         with:
