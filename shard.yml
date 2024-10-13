@@ -4,13 +4,12 @@ version: 0.5.1
 authors:
   - Paul Smith <paulcsmith0218@gmail.com>
 
-crystal: ~> 1.4
+crystal: ">= 1.10.0"
 
 license: MIT
 
-targets:
-  lucky.gen.email:
-    main: src/precompiled_tasks/gen/email.cr
+executables:
+  - lucky.gen.email.cr
 
 dependencies:
   habitat:
@@ -33,6 +32,3 @@ development_dependencies:
   ameba:
     github: crystal-ameba/ameba
     version: ~> 1.5.0
-
-scripts:
-  postinstall: BUILD_WITHOUT_DEVELOPMENT=true script/precompile_tasks
