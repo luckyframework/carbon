@@ -26,6 +26,7 @@ dependencies:
 - `Carbon::SparkPostAdapter` - See [Swiss-Crystal/carbon_sparkpost_adapter](https://github.com/Swiss-Crystal/carbon_sparkpost_adapter).
 - `Carbon::PostmarkAdapter` - See [makisu/carbon_postmark_adapter](https://github.com/makisu/carbon_postmark_adapter).
 - `Carbon::MailersendAdapter` - See [balakhorvathnorbert/carbon_mailersend_adapter](https://github.com/balakhorvathnorbert/carbon_mailersend_adapter).
+- `Carbon::ResendAdapter` - See [rmarronnier/carbon_resend_adapter](https://github.com/rmarronnier/carbon_resend_adapter).
 
 ## Usage
 
